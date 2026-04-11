@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta name="theme-color" content="#1a1a2e">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta charset="UTF-8">
+<!-- saved from url=(0048)file:///Users/sammyennebt/Downloads/index_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SAMMY — PHASE 3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SAMMY Â· FAT BLITZ">
+<title>SAMMY â FAT BLITZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./SAMMY â FAT BLITZ_files/css2" rel="stylesheet">
 <style>
 :root {
-  --bg: #0c0c0c;
-  --surface: #151515;
-  --surface2: #1e1e1e;
-  --border: #2a2a2a;
+  --bg: #090909;
+  --surface: #121212;
+  --surface2: #1a1a1a;
+  --border: #242424;
   --accent: #FF5C00;
   --accent2: #FFB300;
-  --text: #f0f0f0;
-  --muted: #666;
-  --green: #00C853;
-  --delt: #9C27B0;
+  --blue: #00B4D8;
+  --green: #00E676;
+  --red: #FF1744;
+  --purple: #CE93D8;
+  --text: #F0F0F0;
+  --muted: #555;
+  --muted2: #888;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; }
@@ -31,383 +32,484 @@ body {
   color: var(--text);
   font-family: 'IBM Plex Mono', monospace;
   min-height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
+  font-size: 13px;
 }
 
-/* HEADER */
+/* ââ TABS ââ */
+.tabs {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.tab-btn {
+  flex: 1;
+  padding: 14px 4px;
+  background: none;
+  border: none;
+  color: var(--muted2);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ââ VIEWS ââ */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ââ HEADER ââ */
 .header {
   padding: 20px 16px 0;
   position: relative;
   overflow: hidden;
 }
 .header::before {
-  content: 'PHASE 3';
+  content: 'FAT BLITZ';
   position: absolute;
-  top: -10px; right: -10px;
+  top: -8px; right: -8px;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 100px;
-  font-weight: 800;
+  font-size: 90px;
+  font-weight: 900;
   color: rgba(255,92,0,0.04);
   pointer-events: none;
   white-space: nowrap;
 }
-.header-label {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
+.header-label { font-size: 9px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
 .header-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 52px;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 0.9;
   letter-spacing: -1px;
-  color: var(--text);
 }
 .header-title span { color: var(--accent); }
-.header-sub {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 10px;
-  letter-spacing: 1px;
+.header-sub { font-size: 10px; color: var(--muted); margin-top: 10px; letter-spacing: 1px; }
+.header-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.tag {
+  font-size: 9px; letter-spacing: 1.5px; padding: 3px 8px;
+  border: 1px solid var(--border); color: var(--muted); text-transform: uppercase;
 }
-.header-tags {
+.tag.hot { border-color: var(--accent); color: var(--accent); }
+.tag.blue { border-color: var(--blue); color: var(--blue); }
+.tag.green { border-color: var(--green); color: var(--green); }
+
+/* ââ PEPTIDE BANNER ââ */
+.peptide-banner {
+  margin: 16px;
+  background: linear-gradient(135deg, rgba(255,92,0,0.08) 0%, rgba(0,180,216,0.08) 100%);
+  border: 1px solid rgba(255,92,0,0.25);
+  padding: 12px 14px;
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
-.tag {
-  font-size: 9px;
-  letter-spacing: 2px;
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.tag.active { border-color: var(--accent); color: var(--accent); }
-.tag.delt { border-color: var(--delt); color: var(--delt); }
+.pep-item { flex: 1; min-width: 120px; }
+.pep-name { font-size: 9px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+.pep-val { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
+.pep-sub { font-size: 9px; color: var(--muted2); margin-top: 1px; }
 
-/* TEMPO BOX */
-.tempo-strip {
-  margin: 16px 16px 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 12px 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+/* ââ WARNING ââ */
+.warning-box {
+  margin: 0 16px 16px;
+  background: rgba(255,23,68,0.08);
+  border: 1px solid rgba(255,23,68,0.3);
+  padding: 10px 14px;
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
-.tempo-item { }
-.tempo-label { font-size: 8px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 3px; }
-.tempo-val { font-size: 11px; color: var(--text); }
-.tempo-val span { color: var(--accent); }
+.warning-box strong { font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
 
-/* DAY NAV */
+/* ââ DAY NAV ââ */
 .day-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
   display: flex;
+  gap: 6px;
+  padding: 0 16px 16px;
   overflow-x: auto;
-  padding: 0 8px;
   scrollbar-width: none;
-  margin-top: 20px;
 }
 .day-nav::-webkit-scrollbar { display: none; }
 .day-btn {
   flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted2);
   font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
   font-size: 13px;
+  font-weight: 700;
   letter-spacing: 1px;
-  padding: 12px 12px 10px;
-  border: none;
-  background: none;
-  color: var(--muted);
+  padding: 8px 12px;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-  text-transform: uppercase;
+  transition: all 0.15s;
+  text-align: center;
+  min-width: 52px;
 }
-.day-btn:hover { color: var(--text); }
-.day-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-.day-btn.rest-btn.active { color: var(--green); border-bottom-color: var(--green); }
+.day-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.day-btn .day-num { font-size: 18px; font-weight: 900; display: block; line-height: 1; }
+.day-btn .day-type { font-size: 8px; letter-spacing: 1px; display: block; opacity: 0.8; }
 
-/* DAY PANELS */
-.day-panel { display: none; padding: 16px; }
+/* ââ DAY PANEL ââ */
+.day-panel { display: none; padding: 0 16px; }
 .day-panel.active { display: block; }
 
 .day-header {
   margin-bottom: 16px;
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
 }
-.day-num {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-.day-title {
+.day-header h2 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 800;
   line-height: 1;
-  margin: 4px 0 6px;
-  text-transform: uppercase;
 }
-.day-desc {
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.6;
-}
+.day-header p { font-size: 10px; color: var(--muted2); margin-top: 4px; letter-spacing: 1px; }
 
-/* BLOCKS */
-.block {
+/* ââ SUPERSET BLOCK ââ */
+.superset-block {
   background: var(--surface);
   border: 1px solid var(--border);
   margin-bottom: 12px;
   overflow: hidden;
 }
-.block-header {
+.ss-label {
+  background: rgba(255,92,0,0.12);
+  border-bottom: 1px solid rgba(255,92,0,0.2);
+  padding: 6px 12px;
+  font-size: 9px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface2);
+  gap: 8px;
 }
-.block-label {
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.block-rounds {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent);
-}
-.block-rounds.delt-color { color: var(--delt); }
-.block-rest {
-  font-size: 9px;
-  color: var(--muted);
-}
+.ss-label .ss-detail { color: var(--muted2); font-size: 9px; letter-spacing: 1px; margin-left: auto; }
+.ss-label.blue-ss { background: rgba(0,180,216,0.1); border-bottom-color: rgba(0,180,216,0.2); color: var(--blue); }
+.ss-label.green-ss { background: rgba(0,230,118,0.08); border-bottom-color: rgba(0,230,118,0.2); color: var(--green); }
+.ss-label.purple-ss { background: rgba(206,147,216,0.08); border-bottom-color: rgba(206,147,216,0.2); color: var(--purple); }
 
-/* EXERCISE ROW */
-.ex-row {
+.exercise-row {
   display: flex;
-  align-items: flex-start;
-  padding: 12px 14px;
-  border-bottom: 1px solid #1a1a1a;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
   gap: 10px;
-}
-.ex-row:last-child { border-bottom: none; }
-.ex-check {
-  width: 18px;
-  height: 18px;
-  border: 1px solid var(--border);
-  flex-shrink: 0;
   cursor: pointer;
-  margin-top: 2px;
-  position: relative;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+.exercise-row:last-child { border-bottom: none; }
+.exercise-row:active { background: var(--surface2); }
+.exercise-row.done { opacity: 0.4; }
+
+.ex-check {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
-.ex-check.done {
-  background: var(--accent);
-  border-color: var(--accent);
+.exercise-row.done .ex-check {
+  background: var(--green); border-color: var(--green);
 }
-.ex-check.done::after {
-  content: '✓';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  font-size: 10px;
+.ex-check::after {
+  content: '';
+  width: 6px; height: 6px;
+  background: transparent;
+  transition: all 0.1s;
+}
+.exercise-row.done .ex-check::after {
+  content: 'â';
   color: #000;
+  font-size: 10px;
   font-weight: 700;
 }
-.ex-body { flex: 1; min-width: 0; }
+
+.ex-info { flex: 1; min-width: 0; }
 .ex-name {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.5px;
   line-height: 1.1;
-  margin-bottom: 3px;
 }
-.ex-name.delt-ex { color: #CE93D8; }
-.ex-scheme {
-  font-size: 10px;
-  color: var(--accent2);
-  margin-bottom: 4px;
-}
-.ex-note {
-  font-size: 9px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-.ex-note.warn { color: #FF9800; }
-.ex-link {
+.ex-detail { font-size: 9px; color: var(--muted2); margin-top: 2px; letter-spacing: 0.5px; }
+.ex-flag {
+  font-size: 8px; padding: 2px 6px;
+  border: 1px solid var(--muted);
+  color: var(--muted2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  background: #1a1a1a;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.15s;
-  margin-top: 2px;
 }
-.ex-link:hover, .ex-link:active { background: #FF0000; border-color: #FF0000; }
-.ex-link svg { width: 13px; height: 13px; fill: var(--muted); }
-.ex-link:hover svg, .ex-link:active svg { fill: white; }
+.ex-flag.warn { border-color: var(--red); color: var(--red); }
+.ex-flag.key { border-color: var(--accent2); color: var(--accent2); }
 
-/* SET TRACKER */
-.set-tracker {
-  padding: 8px 14px 12px 42px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
+.ex-sets {
+  display: flex; gap: 5px; flex-shrink: 0;
 }
 .set-dot {
-  width: 22px;
-  height: 22px;
-  border: 1px solid var(--border);
+  width: 10px; height: 10px;
+  border: 1.5px solid var(--muted);
   border-radius: 50%;
   cursor: pointer;
-  font-size: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
   transition: all 0.15s;
-  font-family: 'IBM Plex Mono', monospace;
 }
-.set-dot.done { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
-.set-label { font-size: 8px; color: var(--muted); letter-spacing: 1px; }
+.set-dot.hit { background: var(--accent); border-color: var(--accent); }
 
-/* WARMUP */
-.warmup-block {
-  background: #0f1a0f;
-  border: 1px solid #1e2e1e;
-  padding: 12px 14px;
+/* ââ VO2 FINISHER ââ */
+.finisher-block {
+  background: rgba(0,180,216,0.06);
+  border: 1px solid rgba(0,180,216,0.2);
+  padding: 12px;
   margin-bottom: 12px;
 }
-.warmup-title {
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--green);
-  text-transform: uppercase;
-  margin-bottom: 8px;
+.finisher-title {
+  font-size: 9px; color: var(--blue); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;
 }
-.warmup-item {
-  font-size: 11px;
-  color: #888;
-  padding: 3px 0;
-  border-bottom: 1px solid #1a2a1a;
-  display: flex;
-  justify-content: space-between;
+.finisher-row {
+  font-size: 10px; color: var(--muted2); padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; justify-content: space-between;
 }
-.warmup-item:last-child { border-bottom: none; }
-.warmup-item span { color: var(--green); }
+.finisher-row:last-child { border-bottom: none; }
+.finisher-row span { color: var(--text); }
 
-/* CARDIO OPTIONS */
-.cardio-option {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  padding: 12px 14px;
-  margin-bottom: 10px;
-}
-.cardio-option.b { border-left-color: var(--accent2); }
-.cardio-option.c { border-left-color: var(--green); }
-.cardio-title { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-.cardio-detail { font-size: 10px; color: var(--muted); line-height: 1.7; }
+/* ââ WEIGHT LOG VIEW ââ */
+#view-weight { padding: 16px; }
 
-/* REST DAY */
-.rest-panel-content {
-  text-align: center;
-  padding: 40px 20px;
-}
-.rest-icon { font-size: 48px; margin-bottom: 16px; }
-.rest-big { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 800; color: var(--green); }
-.rest-items { margin-top: 20px; text-align: left; }
-.rest-item {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 11px;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-}
-.rest-item span { color: var(--green); }
-
-/* INTENSITY NOTE */
-.intensity-banner {
-  margin: 0 16px 12px;
-  background: linear-gradient(90deg, rgba(255,92,0,0.1), rgba(255,92,0,0.03));
+.weight-hero {
+  background: linear-gradient(135deg, rgba(255,92,0,0.1) 0%, rgba(255,92,0,0.02) 100%);
   border: 1px solid rgba(255,92,0,0.2);
-  border-left: 3px solid var(--accent);
-  padding: 10px 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
 }
-.intensity-banner p { font-size: 10px; color: #aaa; line-height: 1.6; }
-.intensity-banner strong { color: var(--accent); }
+.weight-current-label { font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+.weight-current-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+.weight-current-val span { font-size: 28px; color: var(--muted2); }
+.weight-delta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted2);
+}
+.weight-delta.loss { color: var(--green); }
+.weight-delta.gain { color: var(--red); }
 
-/* SECTION DIVIDER */
-.section-div {
-  font-size: 8px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin: 16px 0 8px;
-  display: flex;
-  align-items: center;
+.weight-targets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 8px;
+  margin-bottom: 16px;
 }
-.section-div::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* DELT CALLOUT */
-.delt-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(156,39,176,0.1);
-  border: 1px solid rgba(156,39,176,0.3);
-  padding: 2px 8px;
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: #CE93D8;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-/* PROGRESS BAR */
-.day-progress {
+.target-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 10px 14px;
-  margin-bottom: 12px;
+  padding: 10px;
+  text-align: center;
+}
+.target-label { font-size: 8px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.target-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+.target-val.orange { color: var(--accent); }
+.target-val.blue { color: var(--blue); }
+.target-val.green { color: var(--green); }
+.target-sub { font-size: 8px; color: var(--muted); margin-top: 2px; }
+
+/* Weight Input Form */
+.log-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.log-form-title { font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+.input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.input-group { flex: 1; }
+.input-group label { font-size: 9px; color: var(--muted2); letter-spacing: 1px; display: block; margin-bottom: 5px; text-transform: uppercase; }
+.input-group input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.input-group input:focus { border-color: var(--accent); }
+.input-group input::placeholder { color: var(--muted); }
+.log-btn {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 0.15s;
+}
+.log-btn:active { opacity: 0.8; }
+
+/* Weight Chart */
+.chart-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.chart-title { font-size: 9px; color: var(--muted2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+.chart-area {
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+.chart-svg { width: 100%; height: 100%; }
+.chart-line { fill: none; stroke: var(--accent); stroke-width: 2; }
+.chart-area-fill { fill: url(#chartGrad); }
+.chart-dot { fill: var(--accent); }
+.chart-no-data { text-align: center; padding: 40px 0; color: var(--muted); font-size: 10px; letter-spacing: 2px; }
+
+/* Weight History */
+.history-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.history-header {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 50px;
+  padding: 8px 12px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.history-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 50px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  font-size: 11px;
+}
+.history-row:last-child { border-bottom: none; }
+.history-row .date { color: var(--muted2); }
+.history-row .kg {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.history-row .change { font-size: 11px; }
+.history-row .change.neg { color: var(--green); }
+.history-row .change.pos { color: var(--red); }
+.history-row .del-btn {
+  background: none; border: none; color: var(--muted); cursor: pointer;
+  font-size: 14px; padding: 0 4px;
+}
+.history-row .del-btn:hover { color: var(--red); }
+.history-title { font-size: 9px; color: var(--muted2); letter-spacing: 3px; text-transform: uppercase; padding: 12px 12px 0; margin-bottom: 8px; }
+
+/* ââ PROTEIN VIEW ââ */
+#view-protein { padding: 16px; }
+
+.protein-gauge-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.protein-target { font-size: 9px; color: var(--blue); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.protein-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+}
+.protein-num span { font-size: 28px; color: var(--muted2); }
+.protein-bar-wrap { background: var(--border); height: 6px; margin: 12px 0 6px; }
+.protein-bar { height: 6px; background: var(--blue); transition: width 0.6s; }
+.protein-sub { font-size: 10px; color: var(--muted2); }
+
+.timing-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.timing-header {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
 }
-.progress-bar-wrap { flex: 1; height: 3px; background: var(--border); }
-.progress-bar { height: 3px; background: var(--accent); width: 0%; transition: width 0.3s; }
-.progress-label { font-size: 9px; color: var(--muted); white-space: nowrap; }
-.progress-num { font-size: 11px; color: var(--accent); font-weight: 500; white-space: nowrap; }
+.timing-time {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  min-width: 70px;
+  line-height: 1;
+}
+.timing-meal { font-size: 11px; color: var(--text); font-weight: 500; }
+.timing-g {
+  margin-left: auto;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+}
+.timing-g span { font-size: 11px; color: var(--muted); }
+.timing-note { padding: 8px 12px; font-size: 10px; color: var(--muted2); line-height: 1.6; }
+.timing-note strong { color: var(--text); }
+.glp1-note {
+  background: rgba(0,180,216,0.06);
+  border: 1px solid rgba(0,180,216,0.15);
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  font-size: 10px;
+  color: var(--muted2);
+  line-height: 1.7;
+}
+.glp1-note strong { color: var(--blue); font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
 
-/* BOTTOM NAV HINT */
-.bottom-hint {
+/* ââ BOTTOM HINT ââ */
+.bottom-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   background: var(--bg);
@@ -419,619 +521,949 @@ body {
   font-size: 9px;
   color: var(--muted);
 }
-.bottom-hint span { color: var(--accent); }
+.bottom-bar .accent { color: var(--accent); }
 
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); }
+/* ââ UTILS ââ */
+.section-gap { height: 16px; }
+.smm-alert {
+  background: rgba(255,183,0,0.08);
+  border: 1px solid rgba(255,183,0,0.25);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 10px;
+  color: var(--accent2);
+  line-height: 1.6;
+}
+.smm-alert strong { font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 3px; }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-label">Post Ramadan · 2026</div>
-  <div class="header-title">SAMMY<br><span>PHASE 3</span></div>
-  <div class="header-sub">BARBELL + MACHINES · 6-DAY SPLIT · DELT FOCUS</div>
-  <div class="header-tags">
-    <span class="tag active">6 Days</span>
-    <span class="tag delt">↑ Delt Volume</span>
-    <span class="tag">Barbell</span>
-    <span class="tag">Machines</span>
-    <span class="tag">Post-Ramadan</span>
-  </div>
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(&#39;program&#39;, this)">PROGRAM</button>
+  <button class="tab-btn" onclick="switchTab(&#39;weight&#39;, this)">WEIGHT</button>
+  <button class="tab-btn" onclick="switchTab(&#39;protein&#39;, this)">PROTEIN</button>
 </div>
 
-<!-- TEMPO -->
-<div class="tempo-strip">
-  <div class="tempo-item">
-    <div class="tempo-label">Compounds</div>
-    <div class="tempo-val"><span>1</span>up · <span>0.5</span>hold · <span>2</span>down</div>
+<!-- ââââââââââ TAB: PROGRAM ââââââââââ -->
+<div id="view-program" class="view active">
+
+  <div class="header">
+    <div class="header-label">Fat Blitz Â· Phase 4 Â· 2026</div>
+    <div class="header-title">SAMMY<br><span>FAT BLITZ</span></div>
+    <div class="header-sub">LOW VOL Â· HIGH INTENSITY Â· 6 DAYS Â· SMM PROTECTION</div>
+    <div class="header-tags">
+      <span class="tag hot">2 Sets Only</span>
+      <span class="tag hot">6â10 Reps</span>
+      <span class="tag blue">Supersets</span>
+      <span class="tag green">Retatrutide</span>
+      <span class="tag green">Tesamorelin</span>
+    </div>
   </div>
-  <div class="tempo-item">
-    <div class="tempo-label">Isolation</div>
-    <div class="tempo-val"><span>1</span>up · <span>0.5</span>hold · <span>1</span>down</div>
+
+  <div style="height:14px;"></div>
+
+  <div class="peptide-banner">
+    <div class="pep-item">
+      <div class="pep-name">Retatrutide</div>
+      <div class="pep-val">2.5mg</div>
+      <div class="pep-sub">Weekly split dose</div>
+    </div>
+    <div class="pep-item">
+      <div class="pep-name">Tesamorelin</div>
+      <div class="pep-val">1mg</div>
+      <div class="pep-sub">Nightly</div>
+    </div>
+    <div class="pep-item">
+      <div class="pep-name">Protein Target</div>
+      <div class="pep-val">170g</div>
+      <div class="pep-sub">Current: 120g/day</div>
+    </div>
   </div>
-  <div class="tempo-item">
-    <div class="tempo-label">Intensity Rule</div>
-    <div class="tempo-val">Leave <span>2–3</span> reps in tank</div>
+
+  <div class="warning-box">
+    <strong>â  SMM ALERT</strong>
+    2kg skeletal muscle mass lost in 4 months. This program is built to halt that. 2 sets max â quality over volume. GLP-1 gastric emptying is slowed; do not fast. Hit protein before you touch iron.
   </div>
-  <div class="tempo-item">
-    <div class="tempo-label">Progression</div>
-    <div class="tempo-val">Add <span>2.5–5kg</span> every 2 weeks</div>
+
+  <!-- DAY NAV -->
+  <div class="day-nav">
+    <button class="day-btn active" onclick="showDay(1,this)">
+      <span class="day-num">D1</span>
+      <span class="day-type">UPPER H</span>
+    </button>
+    <button class="day-btn" onclick="showDay(2,this)">
+      <span class="day-num">D2</span>
+      <span class="day-type">LOWER</span>
+    </button>
+    <button class="day-btn" onclick="showDay(3,this)">
+      <span class="day-num">D3</span>
+      <span class="day-type">UPPER H</span>
+    </button>
+    <button class="day-btn" onclick="showDay(4,this)">
+      <span class="day-num">D4</span>
+      <span class="day-type">LOWER</span>
+    </button>
+    <button class="day-btn" onclick="showDay(5,this)">
+      <span class="day-num">D5</span>
+      <span class="day-type">UPPER H</span>
+    </button>
+    <button class="day-btn" onclick="showDay(6,this)">
+      <span class="day-num">D6</span>
+      <span class="day-type">ARMS</span>
+    </button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div id="day1" class="day-panel active">
+    <div class="day-header">
+      <h2>DAY 1 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+      <p>CHEST Â· BACK Â· DELTS Â· VO2 FINISHER</p>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET A Â· PRIMARY PUSH/PULL <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">FLAT BENCH PRESS</div>
+          <div class="ex-detail">2 sets Â· 6â8 reps Â· compound anchor</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">ASSISTED PULL-UPS</div>
+          <div class="ex-detail">2 sets Â· 6â8 reps Â· full ROM</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET B Â· SHOULDER / REAR DELT <span class="ss-detail">2Ã8-10 Â· 75s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">SHOULDER PRESS</div>
+          <div class="ex-detail">2 sets Â· 8â10 reps Â· machine or DB</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">FACE PULLS</div>
+          <div class="ex-detail">2 sets Â· 10â12 reps Â· external rotation emphasis</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">SUPERSET C Â· CABLE + LAT <span class="ss-detail">2Ã10 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CABLE CROSSOVERS</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· chest isolation finish</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LAT PULLDOWNS</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· wide grip</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="finisher-block">
+      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
+      <div class="finisher-row">Assault bike or rower <span>4 Ã 30s all-out / 90s rest</span></div>
+      <div class="finisher-row">OR incline treadmill walk <span>12 min Â· 8% grade Â· 5.5 km/h</span></div>
+      <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div id="day2" class="day-panel">
+    <div class="day-header">
+      <h2>DAY 2 â LOWER<br><span style="color:var(--blue)">QUAD / HAMSTRING</span></h2>
+      <p>LEG PRESS Â· HACKS Â· HAMSTRING Â· CALVES</p>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET A Â· PRIMARY QUAD <span class="ss-detail">2Ã6-8 Â· 120s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LEG PRESS</div>
+          <div class="ex-detail">2 sets Â· 6â8 reps Â· feet shoulder-width</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HACK SQUATS</div>
+          <div class="ex-detail">2 sets Â· 8 reps Â· controlled negative</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET B Â· POSTERIOR CHAIN <span class="ss-detail">2Ã10 Â· 90s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HAMSTRING MACHINE</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· lying or seated curl</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HIP ABDUCTION MACHINE</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· glute med activation</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET C Â· ISOLATION FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">QUAD EXTENSIONS</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· peak squeeze at top</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CALF RAISES</div>
+          <div class="ex-detail">2 sets Â· 15 reps Â· slow negative</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div id="day3" class="day-panel">
+    <div class="day-header">
+      <h2>DAY 3 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+      <p>BACK FOCUS Â· DELTS Â· CABLE WORK</p>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET A Â· BACK / PRESS <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LAT PULLDOWNS</div>
+          <div class="ex-detail">2 sets Â· 6â 8 reps Â· heavy, full ROM</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">SHOULDER PRESS</div>
+          <div class="ex-detail">2 sets Â· 8 reps Â· moderate load</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET B Â· DELT TRIPLE <span class="ss-detail">2Ã10 Â· 75s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LATERAL RAISES (CABLE)</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· constant tension cable</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">FACE PULLS</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· external rotation</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">SUPERSET C Â· CABLE FINISH <span class="ss-detail">2Ã10-12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CABLE CROSSOVERS</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· high-to-low</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">ASSISTED PULL-UPS</div>
+          <div class="ex-detail">2 sets Â· 8â10 reps Â· controlled</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="finisher-block">
+      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
+      <div class="finisher-row">Ski erg or rowing machine <span>4 Ã 40s / 80s rest</span></div>
+      <div class="finisher-row">OR stairmaster <span>12 min moderate-high</span></div>
+      <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div id="day4" class="day-panel">
+    <div class="day-header">
+      <h2>DAY 4 â LOWER<br><span style="color:var(--blue)">POSTERIOR FOCUS</span></h2>
+      <p>HAMSTRING Â· HIP Â· GLUTE Â· CALVES</p>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET A Â· HIP HINGE <span class="ss-detail">2Ã8 Â· 120s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HAMSTRING MACHINE</div>
+          <div class="ex-detail">2 sets Â· 8 reps Â· heavy, slow negative</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HIP ADDUCTION MACHINE</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· inner thigh</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET B Â· QUAD / CALF <span class="ss-detail">2Ã10-12 Â· 75s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LEG PRESS</div>
+          <div class="ex-detail">2 sets Â· 10â12 reps Â· higher feet position</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CALF RAISES (MACHINE)</div>
+          <div class="ex-detail">2 sets Â· 15 reps Â· 3s hold at top</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label blue-ss">SUPERSET C Â· GLUTE FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HIP ABDUCTION MACHINE</div>
+          <div class="ex-detail">2 sets Â· 15 reps Â· glute med</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">QUAD EXTENSIONS</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· peak squeeze</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div id="day5" class="day-panel">
+    <div class="day-header">
+      <h2>DAY 5 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+      <p>PRESS Â· DELT TRI-SET Â· REAR FOCUS</p>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET A Â· CHEST / PULL <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">FLAT BENCH PRESS</div>
+          <div class="ex-detail">2 sets Â· 6â8 reps Â· top-set effort</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LAT PULLDOWNS</div>
+          <div class="ex-detail">2 sets Â· 8 reps Â· underhand grip variation</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">DELT TRI-SET Â· ALL 3 HEADS <span class="ss-detail">2 rounds Â· no rest within</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LATERAL RAISES</div>
+          <div class="ex-detail">2Ã10 Â· mid delt Â· light-moderate</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">FACE PULLS</div>
+          <div class="ex-detail">2Ã12 Â· rear delt + rotator cuff</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">REAR DELT FLY</div>
+          <div class="ex-detail">2Ã12 Â· pec deck reverse / cable</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label">SUPERSET C Â· FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CABLE CROSSOVERS</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· low-to-high</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">ASSISTED PULL-UPS</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· wide grip</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="finisher-block">
+      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
+      <div class="finisher-row">Assault bike <span>5 Ã 20s sprint / 100s rest</span></div>
+      <div class="finisher-row">OR brisk walk incline <span>15 min Â· zone 3</span></div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div id="day6" class="day-panel">
+    <div class="day-header">
+      <h2>DAY 6 â ARMS<br><span style="color:var(--purple)">WEAK POINT AUDIT</span></h2>
+      <p>BICEP Â· TRICEP Â· FOREARM Â· ELBOW PROTOCOL</p>
+    </div>
+    <div class="smm-alert">
+      <strong>â  LEFT ELBOW FLAG</strong>
+      Neutral grip mandatory on all curl and rowing movements. EZ-bar or hammer grip only. Avoid supinated barbell curls.
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">SUPERSET A Â· BI / TRI <span class="ss-detail">2Ã8-10 Â· 75s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">EZ-BAR CURL (NEUTRAL)</div>
+          <div class="ex-detail">2 sets Â· 8â10 reps Â· no swinging</div>
+        </div>
+        <span class="ex-flag warn">ELBOW</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CABLE TRICEP PUSHDOWN</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· rope attachment</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">SUPERSET B Â· ISOLATION <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HAMMER CURL</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· brachialis focus</div>
+        </div>
+        <span class="ex-flag warn">ELBOW</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">OVERHEAD CABLE TRICEP</div>
+          <div class="ex-detail">2 sets Â· 10 reps Â· long head stretch</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+    <div class="superset-block">
+      <div class="ss-label purple-ss">WEAK POINT AUDIT Â· PICK 1 <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LATERAL RAISES (CABLE)</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· weak-point delt</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="exercise-row" onclick="toggleEx(this)">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">REAR DELT CABLE PULL</div>
+          <div class="ex-detail">2 sets Â· 12 reps Â· finisher option</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END PROGRAM VIEW -->
+
+
+<!-- ââââââââââ TAB: WEIGHT ââââââââââ -->
+<div id="view-weight" class="view">
+
+  <div id="weight-hero" class="weight-hero">
+    <div class="weight-current-label">CURRENT WEIGHT</div>
+    <div class="weight-current-val" id="current-weight-display">-- <span>kg</span></div>
+    <div class="weight-delta" id="weight-delta-display">Log your first entry below</div>
+  </div>
+
+  <div class="weight-targets">
+    <div class="target-card">
+      <div class="target-label">Target</div>
+      <div class="target-val orange">79<span style="font-size:14px;color:var(--muted2)">kg</span></div>
+      <div class="target-sub">Fat Blitz goal</div>
+    </div>
+    <div class="target-card">
+      <div class="target-label">SMM Floor</div>
+      <div class="target-val blue">Protect</div>
+      <div class="target-sub">No further loss</div>
+    </div>
+    <div class="target-card">
+      <div class="target-label">Protocol</div>
+      <div class="target-val green">Active</div>
+      <div class="target-sub">Retatrutide</div>
+    </div>
+  </div>
+
+  <!-- LOG FORM -->
+  <div class="log-form" style="margin-bottom:16px;">
+    <div class="log-form-title">LOG WEIGHT ENTRY</div>
+    <div class="input-row">
+      <div class="input-group">
+        <label>Weight (kg)</label>
+        <input type="number" id="weight-input" placeholder="e.g. 84.5" step="0.1" min="50" max="200">
+      </div>
+      <div class="input-group">
+        <label>Date</label>
+        <input type="date" id="date-input">
+      </div>
+    </div>
+    <div class="input-row" style="margin-bottom:0;">
+      <div class="input-group">
+        <label>Note (optional)</label>
+        <input type="text" id="note-input" placeholder="e.g. post-breakfast">
+      </div>
+    </div>
+    <div style="height:10px;"></div>
+    <button class="log-btn" onclick="logWeight()">LOG WEIGHT</button>
+  </div>
+
+  <!-- CHART -->
+  <div class="chart-container">
+    <div class="chart-title">WEIGHT TREND</div>
+    <div class="chart-area" id="chart-area">
+      <div class="chart-no-data" id="chart-no-data" style="display: block;">Log 2+ entries to see trend</div>
+      <svg class="chart-svg" id="chart-svg" style="display:none;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <lineargradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FF5C00" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#FF5C00" stop-opacity="0"></stop>
+          </lineargradient>
+        </defs>
+        <path id="chart-area-path" class="chart-area-fill"></path>
+        <path id="chart-line-path" class="chart-line"></path>
+        <g id="chart-dots"></g>
+        <g id="chart-labels" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:9px;fill:#555;"></g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="history-table">
+    <div class="history-title">WEIGHT LOG</div>
+    <div class="history-header">
+      <div>DATE</div>
+      <div>KG</div>
+      <div>CHANGE</div>
+      <div></div>
+    </div>
+    <div id="weight-history-list"><div style="padding:20px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:2sx;">NO ENTRIES YET</div></div>
+  </div>
+
+  <div style="height:8px;"></div>
+</div>
+<!-- END WEIGHT VIEW -->
+
+
+<!-- ââââââââââ TAB: PROTEIN ââââââââââ -->
+<div id="view-protein" class="view">
+
+  <div style="padding:16px 16px 0;">
+    <div class="header-label">GLP-1 Optimised</div>
+    <div style="font-family:&#39;Barlow Condensed&#39;,sans-serif;font-size:40px;font-weight:900;line-height:1;">PROTEIN<br><span style="color:var(--blue)">TIMING</span></div>
+    <div style="font-size:10px;color:var(--muted2);margin-top:8px;letter-spacing:1px;">120g â 170g/DAY Â· SLOWED GASTRIC EMPTYING PROTOCOL</div>
+  </div>
+
+  <div style="height:14px;"></div>
+
+  <div class="protein-gauge-wrap" style="margin:0 16px 14px;">
+    <div class="protein-target">DAILY TARGET</div>
+    <div class="protein-num">170 <span>g/day</span></div>
+    <div class="protein-bar-wrap"><div class="protein-bar" style="width:71%;"></div></div>
+    <div class="protein-sub">Currently achieving ~120g (71%) Â· Gap: 50g/day</div>
+  </div>
+
+  <div style="padding:0 16px;">
+    <div class="glp1-note">
+      <strong>â  GLP-1 / GIP SLOWED MOTILITY RULES</strong>
+      Retatrutide suppresses appetite and slows gastric emptying. Large bolus meals will cause nausea and bloating. The protocol below distributes protein across 6 micro-windows. Never eat a protein meal within 60 minutes of a dose. Liquid protein (shakes, yogurt) digests faster than solid food and is your primary tool for hitting targets without GI distress.
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">6:30</div>
+        <div>
+          <div class="timing-meal">Wake-up Shake</div>
+          <div style="font-size:9px;color:var(--muted2);">Pre-workout / fasted window</div>
+        </div>
+        <div class="timing-g">35 <span>g</span></div>
+      </div>
+      <div class="timing-note">Whey isolate in 300ml water (fastest absorbing, minimal gastric load). Add <strong>creatine 5g</strong> here. Do not add milk â slows digestion. Take <strong>before iron</strong>, not after. This is your anchor protein window.</div>
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">9:30</div>
+        <div>
+          <div class="timing-meal">Post-Workout Meal</div>
+          <div style="font-size:9px;color:var(--muted2);">Solid food Â· anabolic window</div>
+        </div>
+        <div class="timing-g">40 <span>g</span></div>
+      </div>
+      <div class="timing-note">3 scrambled eggs + 150g Greek yogurt (Chobani full-fat). Soft, fast-digesting. This is your biggest solid protein window â take advantage while hunger window is open post-training before Retatrutide appetite suppression kicks in fully.</div>
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">12:30</div>
+        <div>
+          <div class="timing-meal">Lunch Protein Block</div>
+          <div style="font-size:9px;color:var(--muted2);">Mid-day Â· light volume</div>
+        </div>
+        <div class="timing-g">35 <span>g</span></div>
+      </div>
+      <div class="timing-note">150â180g chicken breast or canned tuna (drained). Keep the meal small â GLP-1 satiety peaks midday. No rice or dense carbs. Add <strong>10g psyllium husk in water</strong> separately 30 min before to assist motility without interfering with protein absorption.</div>
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">16:00</div>
+        <div>
+          <div class="timing-meal">Afternoon Casein</div>
+          <div style="font-size:9px;color:var(--muted2);">Slow-release bridge</div>
+        </div>
+        <div class="timing-g">25 <span>g</span></div>
+      </div>
+      <div class="timing-note">Casein shake or 200g cottage cheese. Slow-digesting protein is ideal here â bridges the gap to dinner without loading the stomach. This window is often skipped when on GLP-1s. <strong>Do not skip this.</strong> It directly closes your protein gap.</div>
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">19:00</div>
+        <div>
+          <div class="timing-meal">Dinner</div>
+          <div style="font-size:9px;color:var(--muted2);">Light protein Â· small volume</div>
+        </div>
+        <div class="timing-g">25 <span>g</span></div>
+      </div>
+      <div class="timing-note">Salmon fillet (140g) or 2 eggs + 100g yogurt. Keep this meal light. GLP-1 induced satiety is strong by evening â do not force a heavy meal. Pair with steamed greens only. No dense starches at this window.</div>
+    </div>
+
+    <div class="timing-block">
+      <div class="timing-header">
+        <div class="timing-time">21:30</div>
+        <div>
+          <div class="timing-meal">Pre-Sleep (Tesamorelin Window)</div>
+          <div style="font-size:9px;color:var(--muted2);">Nightly Â· growth hormone synergy</div>
+        </div>
+        <div class="timing-g">10 <span>g</span></div>
+      </div>
+      <div class="timing-note">Administer <strong>Tesamorelin 1mg</strong> on empty stomach. Wait 45 minutes. Then 1 small casein scoop or 100g cottage cheese. GH pulsatility is disrupted by insulin â keeping carbs zero at this window maximises Tesamorelin efficacy while delivering slow-release amino acids overnight for muscle repair.</div>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);padding:14px;margin-top:4px;margin-bottom:16px;">
+      <div style="font-size:9px;color:var(--muted2);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;">DAILY TOTAL BREAKDOWN</div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">6:30 Whey shake</span><span style="color:var(--text);">35g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">9:30 Eggs + yogurt</span><span style="color:var(--text);">40g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">12:30 Chicken/tuna</span><span style="color:var(--text);">35g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">16:00 Casein/cottage cheese</span><span style="color:var(--text);">25g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">19:00 Salmon/eggs</span><span style="color:var(--text);">25g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="color:var(--muted2);">21:30 Pre-sleep casein</span><span style="color:var(--text);">10g</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:14px;padding:10px 0 0;font-family:&#39;Barlow Condensed&#39;,sans-serif;font-weight:700;">
+        <span style="color:var(--muted2);">TOTAL</span><span style="color:var(--blue);">170g</span>
+      </div>
+    </div>
   </div>
 </div>
+<!-- END PROTEIN VIEW -->
 
-<div class="intensity-banner">
-  <p><strong>Post-Ramadan reset:</strong> Week 1 — start at 80% of pre-Ramadan weights. Week 2 — back to normal. Week 3+ — progressive overload. Don't ego-lift Day 1.</p>
-</div>
 
-<!-- DAY NAV -->
-<div class="day-nav" id="dayNav">
-  <button class="day-btn active" onclick="showDay(1, this)">D1</button>
-  <button class="day-btn" onclick="showDay(2, this)">D2</button>
-  <button class="day-btn" onclick="showDay(3, this)">D3</button>
-  <button class="day-btn" onclick="showDay(4, this)">D4</button>
-  <button class="day-btn" onclick="showDay(5, this)">D5</button>
-  <button class="day-btn" onclick="showDay(6, this)">D6</button>
-  <button class="day-btn rest-btn" onclick="showDay(7, this)">D7</button>
-</div>
-
-<!-- ======================== DAY 1 ======================== -->
-<div class="day-panel active" id="day1">
-  <div class="day-header">
-    <div class="day-num">Day 1 · Monday</div>
-    <div class="day-title">Upper<br>Hypertrophy</div>
-    <div class="delt-badge">⬡ Side + Rear Delts</div>
-    <div class="day-desc">Push / Pull superset pairing. Delt block extended — 4 rounds vs Phase 2's 3. Face pulls added for rear delt balance.</div>
-  </div>
-
-  <div class="day-progress">
-    <div class="progress-label">Session</div>
-    <div class="progress-bar-wrap"><div class="progress-bar" id="p1"></div></div>
-    <div class="progress-num" id="pn1">0 / 10</div>
-  </div>
-
-  <div class="warmup-block">
-    <div class="warmup-title">Warm-Up · 3–5 min</div>
-    <div class="warmup-item">Arm circles <span>×30</span></div>
-    <div class="warmup-item">Band pull-aparts <span>×20</span></div>
-    <div class="warmup-item">Push-ups <span>×10</span></div>
-    <div class="warmup-item">Light incline bike / row <span>3 min</span></div>
-  </div>
-
-  <div class="section-div">Superset 1</div>
-  <div class="block">
-    <div class="block-header">
-      <div>
-        <div class="block-label">Superset 1 — Chest + Back</div>
-        <div class="block-rest">Rest 60 sec between rounds</div>
-      </div>
-      <div class="block-rounds">4 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this, 'd1s1e1')"></div>
-      <div class="ex-body">
-        <div class="ex-name">Barbell Bench Press</div>
-        <div class="ex-scheme">8–10 reps</div>
-        <div class="ex-note">Drive shoulder blades into bench. Bar to lower chest.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+bench+press+form+tutorial" target="_blank" title="Watch demo">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this, 'd1s1e2')"></div>
-      <div class="ex-body">
-        <div class="ex-name">Chest-Supported Row</div>
-        <div class="ex-scheme">10–12 reps</div>
-        <div class="ex-note">Elbows at 45°, squeeze at top. Use cable or machine.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=chest+supported+row+form" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Superset 2</div>
-  <div class="block">
-    <div class="block-header">
-      <div>
-        <div class="block-label">Superset 2 — Shoulder + Back</div>
-        <div class="block-rest">Rest 60–75 sec</div>
-      </div>
-      <div class="block-rounds">3 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name">Seated DB / Machine Shoulder Press</div>
-        <div class="ex-scheme">10–12 reps</div>
-        <div class="ex-note">Control the eccentric. Don't lock out at top.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=seated+dumbbell+shoulder+press+form" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name">Lat Pulldown</div>
-        <div class="ex-scheme">10–12 reps</div>
-        <div class="ex-note">Wide grip. Pull to upper chest, lean back slightly.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=lat+pulldown+form+tutorial" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-  </div>
-
-  <div class="section-div">Delt Block — UPGRADED</div>
-  <div class="delt-badge">⬡ Phase 3 Priority — 4 Rounds</div>
-  <div class="block">
-    <div class="block-header">
-      <div>
-        <div class="block-label">Side + Rear Delt Tri-Set</div>
-        <div class="block-rest">Rest 45–60 sec</div>
-      </div>
-      <div class="block-rounds delt-color">4 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Machine Lateral Raise</div>
-        <div class="ex-scheme">12–15 reps</div>
-        <div class="ex-note">Lead with elbow, not wrist. Pause at top briefly.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=machine+lateral+raise+form" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">High Cable Lateral Raise</div>
-        <div class="ex-scheme">12–15 reps each side</div>
-        <div class="ex-note">Cable set high, arm crosses body. Isolates mid-delt differently from machine.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=high+cable+lateral+raise+form" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Face Pull — Rope Attachment</div>
-        <div class="ex-scheme">15 reps · light-moderate</div>
-        <div class="ex-note">NEW: Rear delt + external rotation. Cable at face height. Elbows flare out at finish.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cable+face+pull+rear+delt+form" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-      </a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Optional Finisher</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Finisher</div><div class="block-rest">Only if time + energy permits</div></div>
-      <div class="block-rounds" style="color:var(--muted)">2 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Renegade Rows</div><div class="ex-scheme">8–10 reps each side</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=renegade+row+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Push-ups</div><div class="ex-scheme">10–12 reps</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=push+up+perfect+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-  </div>
-</div>
-
-<!-- ======================== DAY 2 ======================== -->
-<div class="day-panel" id="day2">
-  <div class="day-header">
-    <div class="day-num">Day 2 · Tuesday</div>
-    <div class="day-title">Lower Body<br>+ Mobility</div>
-    <div class="day-desc">No RDL today. Quad + hamstring balance. Tendon note: keep post-session cardio flat if ankle is sore.</div>
-  </div>
-
-  <div class="warmup-block">
-    <div class="warmup-title">Warm-Up · 3–5 min</div>
-    <div class="warmup-item">Hip circles <span>×20 each</span></div>
-    <div class="warmup-item">Bodyweight squats <span>×20</span></div>
-    <div class="warmup-item">Light calf mobility <span>1 min</span></div>
-    <div class="warmup-item">Glute bridges <span>×15</span></div>
-  </div>
-
-  <div class="section-div">Superset 1</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Superset 1 — Quad Primary</div><div class="block-rest">Rest 75 sec</div></div>
-      <div class="block-rounds">4 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Barbell Back Squat</div><div class="ex-scheme">8–10 reps</div><div class="ex-note">Depth to parallel minimum. Brace core, knees track toes.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+back+squat+form+tutorial" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Reverse Lunges (DB)</div><div class="ex-scheme">8–10 reps each leg</div><div class="ex-note">Step back, knee hovers above floor. More glute/quad than forward lunge.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=dumbbell+reverse+lunge+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Superset 2</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Superset 2 — Hamstring + Posterior</div><div class="block-rest">Rest 60 sec</div></div>
-      <div class="block-rounds">3 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Seated Leg Curl</div><div class="ex-scheme">10–15 reps</div><div class="ex-note">Full ROM. Hold briefly at peak contraction.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=seated+leg+curl+machine+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Back Extension (45°)</div><div class="ex-scheme">12–15 reps</div><div class="ex-note">Bodyweight or with plate. Hinge at hip, not spine.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=45+degree+back+extension+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-  </div>
-
-  <div class="section-div">Finisher</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Glute + Calf Finisher</div><div class="block-rest">Rest 45–60 sec</div></div>
-      <div class="block-rounds">3 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Hip Thrust (Barbell)</div><div class="ex-scheme">10–12 reps</div><div class="ex-note">Drive through heels, squeeze glutes at top. 2-sec hold.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+hip+thrust+form+tutorial" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Standing Calf Raise</div><div class="ex-scheme">12–15 reps · 2-sec pause top</div><div class="ex-note">Full stretch at bottom. Slow and controlled.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=standing+calf+raise+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-  </div>
-</div>
-
-<!-- ======================== DAY 3 ======================== -->
-<div class="day-panel" id="day3">
-  <div class="day-header">
-    <div class="day-num">Day 3 · Wednesday</div>
-    <div class="day-title">Full Body<br>Metabolic</div>
-    <div class="delt-badge">⬡ Cable Lateral added to circuit</div>
-    <div class="day-desc">Continuous circuit. Keep rest tight. Should be sweating by round 2.</div>
-  </div>
-
-  <div class="warmup-block">
-    <div class="warmup-title">Warm-Up · 2–3 min</div>
-    <div class="warmup-item">Full body mobility from D1+D2 <span>combined</span></div>
-    <div class="warmup-item">Light bike or row <span>2 min</span></div>
-  </div>
-
-  <div class="section-div">Main Circuit</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Circuit — Move Through in Order</div><div class="block-rest">Rest 60–75 sec between rounds</div></div>
-      <div class="block-rounds">4–5 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">DB / Barbell Thrusters</div><div class="ex-scheme">10–12 reps</div><div class="ex-note">Squat to press. Explosive. This is the metabolic engine of the session.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=dumbbell+thruster+form+tutorial" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Cable Row</div><div class="ex-scheme">10–12 reps</div><div class="ex-note">Keep back neutral. Elbows drive back.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cable+seated+row+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Machine Chest Press</div><div class="ex-scheme">10–12 reps</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=machine+chest+press+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">DB Light RDL</div><div class="ex-scheme">12–15 reps</div><div class="ex-note">Light weight, feel the stretch. Not heavy — this is metabolic, not strength.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=dumbbell+romanian+deadlift+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Cable Lateral Raise</div>
-        <div class="ex-scheme">12 reps each side</div>
-        <div class="ex-note">NEW: Delt snuck into metabolic day. Light weight, strict form.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cable+lateral+raise+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Battle Ropes / Ski Erg / Bike</div><div class="ex-scheme">20–30 seconds · all out</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=battle+ropes+HIIT+technique" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-  </div>
-
-  <div class="section-div">Core Finisher</div>
-  <div class="block">
-    <div class="block-header"><div><div class="block-label">Core</div></div><div class="block-rounds" style="color:var(--muted)">2 Rounds</div></div>
-    <div class="ex-row"><div class="ex-check" onclick="toggleCheck(this)"></div><div class="ex-body"><div class="ex-name">Plank</div><div class="ex-scheme">45 seconds</div></div></div>
-    <div class="ex-row"><div class="ex-check" onclick="toggleCheck(this)"></div><div class="ex-body"><div class="ex-name">Side Plank</div><div class="ex-scheme">30 sec each side</div></div></div>
-  </div>
-</div>
-
-<!-- ======================== DAY 4 ======================== -->
-<div class="day-panel" id="day4">
-  <div class="day-header">
-    <div class="day-num">Day 4 · Thursday</div>
-    <div class="day-title">Conditioning<br>/ Cardio</div>
-    <div class="day-desc">Active recovery + cardiovascular work. Pick one option based on how ankle/tendon feels.</div>
-  </div>
-
-  <div class="cardio-option">
-    <div class="cardio-title">A — Incline Treadmill Walk</div>
-    <div class="cardio-detail">20–30 min · moderate pace · incline 4–6%<br>Best option if ankle feels good. Easy on joints, good fat burn.</div>
-  </div>
-  <div class="cardio-option b">
-    <div class="cardio-title">B — Bike / Cross-trainer</div>
-    <div class="cardio-detail">20–30 min · steady state<br>Use if ankle is sore. Zero impact.</div>
-  </div>
-  <div class="cardio-option c">
-    <div class="cardio-title">C — Home LISS Circuit · 15–20 min</div>
-    <div class="cardio-detail">Step-ups 1 min → Shadow boxing 1 min → Air squats 1 min<br>Repeat 4–5 rounds · rest 1 min between rounds</div>
-  </div>
-
-  <div class="block" style="margin-top:16px">
-    <div class="block-header"><div><div class="block-label">Post-Cardio</div></div></div>
-    <div class="ex-row"><div class="ex-check" onclick="toggleCheck(this)"></div><div class="ex-body"><div class="ex-name">Full Body Stretch</div><div class="ex-scheme">10–15 min</div><div class="ex-note">Hip flexors, hamstrings, chest, lats. This is your mobility investment.</div></div></div>
-  </div>
-</div>
-
-<!-- ======================== DAY 5 ======================== -->
-<div class="day-panel" id="day5">
-  <div class="day-header">
-    <div class="day-num">Day 5 · Friday</div>
-    <div class="day-title">Upper Strength<br>+ Full Delt</div>
-    <div class="delt-badge">⬡ PRIORITY DAY — Front + Side + Rear Delts</div>
-    <div class="day-desc">Heavier loads vs Day 1. Lower reps, longer rests. Full delt tri-set is the centrepiece — all three heads, 4 rounds.</div>
-  </div>
-
-  <div class="warmup-block">
-    <div class="warmup-title">Warm-Up</div>
-    <div class="warmup-item">Same as Day 1 <span>+ light press/row warmup sets</span></div>
-  </div>
-
-  <div class="section-div">Superset 1 — Heavy</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Superset 1 — Incline + Row</div><div class="block-rest">Rest 90 sec</div></div>
-      <div class="block-rounds">4 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Barbell Incline Press</div><div class="ex-scheme">5–6 reps · heavier</div><div class="ex-note">30–45° incline. Upper chest + front delt. This is a strength set.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+incline+bench+press+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">One-Arm DB Row</div><div class="ex-scheme">8–10 reps each side</div><div class="ex-note">Brace on bench. Full ROM — stretch at bottom, elbow to hip at top.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=one+arm+dumbbell+row+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Superset 2</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Superset 2 — OHP + Pull</div><div class="block-rest">Rest 75–90 sec</div></div>
-      <div class="block-rounds">3 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Standing Barbell OHP</div><div class="ex-scheme">6–8 reps</div><div class="ex-note">Strict press. Don't use legs. Best front delt + medial delt compound.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=standing+barbell+overhead+press+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Weighted Pull-Up / Assisted Pulldown</div><div class="ex-scheme">8–10 reps</div><div class="ex-note">Add weight if bodyweight is easy. Or use cable machine with heavier stack.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=weighted+pull+up+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-  </div>
-
-  <div class="section-div">Full Delt Tri-Set — PHASE 3 PRIORITY</div>
-  <div class="delt-badge">⬡ All Three Delt Heads · 4 Rounds</div>
-  <div class="block">
-    <div class="block-header">
-      <div><div class="block-label">Side + Rear + Cross-Body</div><div class="block-rest">Rest 60 sec</div></div>
-      <div class="block-rounds delt-color">4 Rounds</div>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Machine Lateral Raise</div>
-        <div class="ex-scheme">12–15 reps</div>
-        <div class="ex-note">Heavier than Day 1 if possible. This is your strength delt day.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=machine+lateral+raise+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Reverse Pec Deck / Rear Delt Cable Fly</div>
-        <div class="ex-scheme">12–15 reps</div>
-        <div class="ex-note">NEW: Rear delt isolation. Don't go heavy — feel the contraction, not the weight.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=reverse+pec+deck+rear+delt+fly+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name delt-ex">Cross-Body Cable Lateral Raise</div>
-        <div class="ex-scheme">12–15 reps each arm</div>
-        <div class="ex-note">Low cable, arm crosses body at bottom. Best stretch position for side delt.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cross+body+cable+lateral+raise" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Arms</div>
-  <div class="block">
-    <div class="block-header"><div><div class="block-label">Bicep + Tricep</div><div class="block-rest">Rest 45–60 sec</div></div><div class="block-rounds" style="color:var(--muted)">2 Rounds</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body">
-        <div class="ex-name">EZ-Bar / DB Curls</div>
-        <div class="ex-scheme">10–12 reps</div>
-        <div class="ex-note warn">⚠ Left inner elbow: use neutral/hammer grip if sore. Don't push through pain here.</div>
-      </div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=EZ+bar+curl+form+bicep" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Cable Tricep Pressdown</div><div class="ex-scheme">10–12 reps</div><div class="ex-note">Rope or straight bar. Elbows pinned to sides.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cable+tricep+pressdown+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div></div>
-  </div>
-</div>
-
-<!-- ======================== DAY 6 ======================== -->
-<div class="day-panel" id="day6">
-  <div class="day-header">
-    <div class="day-num">Day 6 · Saturday</div>
-    <div class="day-title">Lower Strength<br>+ Core</div>
-    <div class="day-desc">Only RDL day. Go heavier here — this is your lower body strength day. Core finisher is non-negotiable.</div>
-  </div>
-
-  <div class="warmup-block">
-    <div class="warmup-title">Warm-Up</div>
-    <div class="warmup-item">Same as lower days <span>+ hip hinge activation</span></div>
-  </div>
-
-  <div class="section-div">Superset 1 — Posterior Chain</div>
-  <div class="block">
-    <div class="block-header"><div><div class="block-label">RDL + Hack Squat</div><div class="block-rest">Rest 90 sec</div></div><div class="block-rounds">4 Rounds</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Romanian Deadlift (Barbell)</div><div class="ex-scheme">6–8 reps · this is your only RDL day</div><div class="ex-note">Hinge at hips, soft bend in knees. Bar stays close to legs. Big hamstring stretch at bottom.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+romanian+deadlift+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Hack Squat Machine</div><div class="ex-scheme">8–10 reps</div><div class="ex-note">Feet higher on plate = more glute/hamstring. Lower = more quad. Try both.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=hack+squat+machine+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div><div class="set-dot" onclick="toggleSet(this)">4</div></div>
-  </div>
-
-  <div class="section-div">Superset 2</div>
-  <div class="block">
-    <div class="block-header"><div><div class="block-label">Bulgarian Split + Hip Thrust</div><div class="block-rest">Rest 75–90 sec</div></div><div class="block-rounds">3 Rounds</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Bulgarian Split Squat</div><div class="ex-scheme">8 reps each leg</div><div class="ex-note">Rear foot elevated. Knee tracks toe. One of the best unilateral exercises.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=bulgarian+split+squat+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Hip Thrust (Barbell · Heavier)</div><div class="ex-scheme">8–10 reps</div><div class="ex-note">Heavier than Day 2. This is your heavy glute day.</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=barbell+hip+thrust+heavy+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="set-tracker"><span class="set-label">Sets:</span><div class="set-dot" onclick="toggleSet(this)">1</div><div class="set-dot" onclick="toggleSet(this)">2</div><div class="set-dot" onclick="toggleSet(this)">3</div></div>
-  </div>
-
-  <div class="section-div">Core Finisher</div>
-  <div class="block">
-    <div class="block-header"><div><div class="block-label">Core — Not Optional</div><div class="block-rest">Rest 30 sec</div></div><div class="block-rounds">3 Rounds</div></div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Hanging Leg Raises</div><div class="ex-scheme">10–12 reps</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=hanging+leg+raise+form" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Cable Woodchop / Pallof Press</div><div class="ex-scheme">12–15 reps each side</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=cable+woodchop+pallof+press+core" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-    <div class="ex-row">
-      <div class="ex-check" onclick="toggleCheck(this)"></div>
-      <div class="ex-body"><div class="ex-name">Bicycle Crunch</div><div class="ex-scheme">20 reps each side</div></div>
-      <a class="ex-link" href="https://youtube.com/results?search_query=bicycle+crunch+form+abs" target="_blank"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
-    </div>
-  </div>
-</div>
-
-<!-- ======================== DAY 7 ======================== -->
-<div class="day-panel" id="day7">
-  <div class="day-header">
-    <div class="day-num">Day 7 · Sunday</div>
-    <div class="day-title">Rest &<br>Recovery</div>
-    <div class="day-desc">Mandatory. This is where adaptation happens. Don't skip or compress this.</div>
-  </div>
-  <div class="rest-panel-content">
-    <div class="rest-icon">🛌</div>
-    <div class="rest-big">RECOVER</div>
-    <div class="rest-items">
-      <div class="rest-item">Light stretching / mobility flow <span>10–15 min</span></div>
-      <div class="rest-item">Steps across the day <span>10,000</span></div>
-      <div class="rest-item">Easy bike or swim <span>15–20 min optional</span></div>
-      <div class="rest-item">Sleep <span>7–8 hrs priority</span></div>
-      <div class="rest-item">Supplements — don't skip <span>All of them</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- BOTTOM HINT -->
-<div class="bottom-hint">
-  <span>SAMMY · <span>PHASE 3</span> · 2026</span>
-  <span>Tap exercise to check off · Tap set dots to track</span>
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <span class="accent">SAMMY Â· FAT BLITZ Â· 2026</span>
+  <span>Tap to check Â· dots = sets</span>
 </div>
 
 <script>
+// ââ TAB SWITCHING ââ
+function switchTab(tab, btn) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + tab).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ââ DAY SWITCHING ââ
 function showDay(n, btn) {
   document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('day' + n).classList.add('active');
   btn.classList.add('active');
-  window.scrollTo({ top: document.querySelector('.day-nav').offsetTop - 1, behavior: 'smooth' });
+  document.querySelector('.day-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function toggleCheck(el) {
-  el.classList.toggle('done');
+// ââ EXERCISE TOGGLE ââ
+function toggleEx(row) {
+  row.classList.toggle('done');
 }
 
-function toggleSet(el) {
-  el.classList.toggle('done');
+function toggleDot(e, dot) {
+  e.stopPropagation();
+  dot.classList.toggle('hit');
 }
+
+// ââ WEIGHT STORAGE ââ
+const WEIGHT_KEY = 'sammy_weight_log_v2';
+
+function getWeightLog() {
+  try {
+    const raw = localStorage.getItem(WEIGHT_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+function saveWeightLog(log) {
+  try { localStorage.setItem(WEIGHT_KEY, JSON.stringify(log)); } catch {}
+}
+
+// ââ SET DATE INPUT DEFAULT ââ
+(function() {
+  const today = new Date();
+  const y = today.getFullYear();
+  const m = String(today.getMonth() + 1).padStart(2, '0');
+  const d = String(today.getDate()).padStart(2, '0');
+  document.getElementById('date-input').value = `${y}-${m}-${d}`;
+})();
+
+// ââ LOG WEIGHT ââ
+function logWeight() {
+  const kgInput = document.getElementById('weight-input');
+  const dateInput = document.getElementById('date-input');
+  const noteInput = document.getElementById('note-input');
+  const kg = parseFloat(kgInput.value);
+  const date = dateInput.value;
+  if (!kg || kg < 40 || kg > 300 || !date) {
+    kgInput.style.borderColor = '#FF1744';
+    setTimeout(() => kgInput.style.borderColor = '', 1000);
+    return;
+  }
+  const log = getWeightLog();
+  // Remove duplicate same-date entry
+  const idx = log.findIndex(e => e.date === date);
+  if (idx >= 0) log.splice(idx, 1);
+  log.push({ date, kg, note: noteInput.value || '' });
+  log.sort((a, b) => new Date(a.date) - new Date(b.date));
+  saveWeightLog(log);
+  kgInput.value = '';
+  noteInput.value = '';
+  renderWeightView();
+}
+
+// ââ DELETE ENTRY ââ
+function deleteEntry(date) {
+  const log = getWeightLog().filter(e => e.date !== date);
+  saveWeightLog(log);
+  renderWeightView();
+}
+
+// ââ RENDER WEIGHT VIEW ââ
+function renderWeightView() {
+  const log = getWeightLog();
+  const historyEl = document.getElementById('weight-history-list');
+  const currentEl = document.getElementById('current-weight-display');
+  const deltaEl = document.getElementById('weight-delta-display');
+
+  if (log.length === 0) {
+    currentEl.innerHTML = '-- <span>kg</span>';
+    deltaEl.textContent = 'Log your first entry below';
+    deltaEl.className = 'weight-delta';
+    historyEl.innerHTML = '<div style="padding:20px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:2px;">NO ENTRIES YET</div>';
+    renderChart([]);
+    return;
+  }
+
+  const latest = log[log.length - 1];
+  currentEl.innerHTML = `${latest.kg.toFixed(1)} <span>kg</span>`;
+
+  if (log.length >= 2) {
+    const prev = log[log.length - 2];
+    const diff = latest.kg - prev.kg;
+    const sign = diff <= 0 ? '' : '+';
+    deltaEl.textContent = `${sign}${diff.toFixed(1)}kg from previous entry`;
+    deltaEl.className = 'weight-delta ' + (diff <= 0 ? 'loss' : 'gain');
+  } else {
+    deltaEl.textContent = 'First entry logged';
+    deltaEl.className = 'weight-delta';
+  }
+
+  // Render history (newest first)
+  const reversed = [...log].reverse();
+  historyEl.innerHTML = reversed.map((entry, i) => {
+    const actual_i = log.length - 1 - i;
+    let changeHTML = '<span style="color:var(--muted)">â</span>';
+    if (actual_i > 0) {
+      const prev = log[actual_i - 1];
+      const diff = entry.kg - prev.kg;
+      const sign = diff <= 0 ? '' : '+';
+      changeHTML = `<span class="change ${diff <= 0 ? 'neg' : 'pos'}">${sign}${diff.toFixed(1)}</span>`;
+    }
+    const dateObj = new Date(entry.date + 'T00:00:00');
+    const label = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    return `<div class="history-row">
+      <div class="date">${label}${entry.note ? `<br><span style="color:var(--muted);font-size:9px;">${entry.note}</span>` : ''}</div>
+      <div class="kg">${entry.kg.toFixed(1)}</div>
+      <div>${changeHTML}</div>
+      <div><button class="del-btn" onclick="deleteEntry('${entry.date}')">â</button></div>
+    </div>`;
+  }).join('');
+
+  renderChart(log);
+}
+
+// ââ RENDER CHART ââ
+function renderChart(log) {
+  const noData = document.getElementById('chart-no-data');
+  const svg = document.getElementById('chart-svg');
+  if (log.length < 2) {
+    noData.style.display = 'block';
+    svg.style.display = 'none';
+    return;
+  }
+  noData.style.display = 'none';
+  svg.style.display = 'block';
+
+  const W = document.getElementById('chart-area').offsetWidth || 300;
+  const H = 120;
+  const PAD = { top: 14, bottom: 18, left: 8, right: 8 };
+
+  const weights = log.map(e => e.kg);
+  const minW = Math.min(...weights) - 1;
+  const maxW = Math.max(...weights) + 1;
+  const n = log.length;
+
+  function xPos(i) { return PAD.left + (i / (n - 1)) * (W - PAD.left - PAD.right); }
+  function yPos(w) { return PAD.top + (1 - (w - minW) / (maxW - minW)) * (H - PAD.top - PAD.bottom); }
+
+  const points = log.map((e, i) => ({ x: xPos(i), y: yPos(e.kg) }));
+  const lineD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+  const areaD = lineD + ` L${points[n-1].x.toFixed(1)},${H} L${points[0].x.toFixed(1)},${H} Z`;
+
+  document.getElementById('chart-line-path').setAttribute('d', lineD);
+  document.getElementById('chart-area-path').setAttribute('d', areaD);
+
+  const dotsG = document.getElementById('chart-dots');
+  const labelsG = document.getElementById('chart-labels');
+  dotsG.innerHTML = '';
+  labelsG.innerHTML = '';
+
+  points.forEach((p, i) => {
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', p.x);
+    circle.setAttribute('cy', p.y);
+    circle.setAttribute('r', i === n - 1 ? 4 : 2.5);
+    circle.setAttribute('fill', i === n - 1 ? '#FF5C00' : '#883300');
+    dotsG.appendChild(circle);
+  });
+
+  // Label first, last, and every 5th
+  [0, n - 1, ...Array.from({length: n}, (_, i) => i).filter(i => i % 5 === 0 && i > 0 && i < n - 1)].forEach(i => {
+    const p = points[i];
+    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    txt.setAttribute('x', p.x);
+    txt.setAttribute('y', H - 2);
+    txt.setAttribute('text-anchor', i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle');
+    txt.textContent = log[i].kg.toFixed(1);
+    labelsG.appendChild(txt);
+  });
+}
+
+// ââ INIT ââ
+renderWeightView();
 </script>
-</body>
-</html>
+
+
+</body></html>
