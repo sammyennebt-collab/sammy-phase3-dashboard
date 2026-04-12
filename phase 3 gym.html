@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///Users/sammyennebt/Downloads/index_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="SAMMY Â· FAT BLITZ">
-<title>SAMMY â FAT BLITZ</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./SAMMY â FAT BLITZ_files/css2" rel="stylesheet">
+<meta name="apple-mobile-web-app-title" content="SAMMY PHASE 3">
+<title>SAMMY &mdash; PHASE 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #090909;
@@ -32,61 +32,16 @@ body {
   color: var(--text);
   font-family: 'IBM Plex Mono', monospace;
   min-height: 100vh;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   font-size: 13px;
 }
 
-/* ââ TABS ââ */
-.tabs {
-  display: flex;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.tab-btn {
-  flex: 1;
-  padding: 14px 4px;
-  background: none;
-  border: none;
-  color: var(--muted2);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-}
-.tab-btn.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-/* ââ VIEWS ââ */
-.view { display: none; }
-.view.active { display: block; }
-
-/* ââ HEADER ââ */
+/* HEADER */
 .header {
   padding: 20px 16px 0;
   position: relative;
   overflow: hidden;
 }
-.header::before {
-  content: 'FAT BLITZ';
-  position: absolute;
-  top: -8px; right: -8px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 90px;
-  font-weight: 900;
-  color: rgba(255,92,0,0.04);
-  pointer-events: none;
-  white-space: nowrap;
-}
-.header-label { font-size: 9px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
 .header-title {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 52px;
@@ -103,41 +58,12 @@ body {
 }
 .tag.hot { border-color: var(--accent); color: var(--accent); }
 .tag.blue { border-color: var(--blue); color: var(--blue); }
-.tag.green { border-color: var(--green); color: var(--green); }
 
-/* ââ PEPTIDE BANNER ââ */
-.peptide-banner {
-  margin: 16px;
-  background: linear-gradient(135deg, rgba(255,92,0,0.08) 0%, rgba(0,180,216,0.08) 100%);
-  border: 1px solid rgba(255,92,0,0.25);
-  padding: 12px 14px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.pep-item { flex: 1; min-width: 120px; }
-.pep-name { font-size: 9px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
-.pep-val { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
-.pep-sub { font-size: 9px; color: var(--muted2); margin-top: 1px; }
-
-/* ââ WARNING ââ */
-.warning-box {
-  margin: 0 16px 16px;
-  background: rgba(255,23,68,0.08);
-  border: 1px solid rgba(255,23,68,0.3);
-  padding: 10px 14px;
-  font-size: 10px;
-  color: var(--red);
-  letter-spacing: 0.5px;
-  line-height: 1.6;
-}
-.warning-box strong { font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
-
-/* ââ DAY NAV ââ */
+/* DAY NAV */
 .day-nav {
   display: flex;
   gap: 6px;
-  padding: 0 16px 16px;
+  padding: 16px 16px 16px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -161,7 +87,7 @@ body {
 .day-btn .day-num { font-size: 18px; font-weight: 900; display: block; line-height: 1; }
 .day-btn .day-type { font-size: 8px; letter-spacing: 1px; display: block; opacity: 0.8; }
 
-/* ââ DAY PANEL ââ */
+/* DAY PANEL */
 .day-panel { display: none; padding: 0 16px; }
 .day-panel.active { display: block; }
 
@@ -178,7 +104,7 @@ body {
 }
 .day-header p { font-size: 10px; color: var(--muted2); margin-top: 4px; letter-spacing: 1px; }
 
-/* ââ SUPERSET BLOCK ââ */
+/* SUPERSET BLOCK */
 .superset-block {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -199,22 +125,24 @@ body {
 }
 .ss-label .ss-detail { color: var(--muted2); font-size: 9px; letter-spacing: 1px; margin-left: auto; }
 .ss-label.blue-ss { background: rgba(0,180,216,0.1); border-bottom-color: rgba(0,180,216,0.2); color: var(--blue); }
-.ss-label.green-ss { background: rgba(0,230,118,0.08); border-bottom-color: rgba(0,230,118,0.2); color: var(--green); }
 .ss-label.purple-ss { background: rgba(206,147,216,0.08); border-bottom-color: rgba(206,147,216,0.2); color: var(--purple); }
 
+/* EXERCISE ROW */
 .exercise-row {
-  display: flex;
-  align-items: center;
   padding: 10px 12px;
   border-bottom: 1px solid var(--border);
-  gap: 10px;
   cursor: pointer;
   transition: background 0.15s;
-  text-decoration: none;
 }
 .exercise-row:last-child { border-bottom: none; }
 .exercise-row:active { background: var(--surface2); }
 .exercise-row.done { opacity: 0.4; }
+
+.ex-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .ex-check {
   width: 18px; height: 18px;
@@ -223,17 +151,10 @@ body {
   display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
-.exercise-row.done .ex-check {
-  background: var(--green); border-color: var(--green);
-}
-.ex-check::after {
-  content: '';
-  width: 6px; height: 6px;
-  background: transparent;
-  transition: all 0.1s;
-}
+.exercise-row.done .ex-check { background: var(--green); border-color: var(--green); }
+.ex-check::after { content: ''; }
 .exercise-row.done .ex-check::after {
-  content: 'â';
+  content: '\2713';
   color: #000;
   font-size: 10px;
   font-weight: 700;
@@ -260,9 +181,7 @@ body {
 .ex-flag.warn { border-color: var(--red); color: var(--red); }
 .ex-flag.key { border-color: var(--accent2); color: var(--accent2); }
 
-.ex-sets {
-  display: flex; gap: 5px; flex-shrink: 0;
-}
+.ex-sets { display: flex; gap: 5px; flex-shrink: 0; align-items: center; }
 .set-dot {
   width: 10px; height: 10px;
   border: 1.5px solid var(--muted);
@@ -272,7 +191,50 @@ body {
 }
 .set-dot.hit { background: var(--accent); border-color: var(--accent); }
 
-/* ââ VO2 FINISHER ââ */
+/* WEIGHT INPUT */
+.ex-weight-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--border);
+}
+.ex-weight-row label {
+  font-size: 8px;
+  color: var(--muted2);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.weight-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  width: 70px;
+  padding: 3px 7px;
+  outline: none;
+  transition: border-color 0.15s;
+  -moz-appearance: textfield;
+}
+.weight-input::-webkit-outer-spin-button,
+.weight-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.weight-input:focus { border-color: var(--accent); }
+.weight-input::placeholder { color: var(--muted); font-size: 12px; }
+.weight-unit { font-size: 9px; color: var(--muted2); letter-spacing: 1px; }
+.weight-saved-tag {
+  font-size: 8px;
+  color: var(--green);
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.weight-saved-tag.show { opacity: 1; }
+
+/* VO2 FINISHER */
 .finisher-block {
   background: rgba(0,180,216,0.06);
   border: 1px solid rgba(0,180,216,0.2);
@@ -290,225 +252,19 @@ body {
 .finisher-row:last-child { border-bottom: none; }
 .finisher-row span { color: var(--text); }
 
-/* ââ WEIGHT LOG VIEW ââ */
-#view-weight { padding: 16px; }
-
-.weight-hero {
-  background: linear-gradient(135deg, rgba(255,92,0,0.1) 0%, rgba(255,92,0,0.02) 100%);
-  border: 1px solid rgba(255,92,0,0.2);
-  padding: 20px;
-  margin-bottom: 16px;
-  text-align: center;
-}
-.weight-current-label { font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
-.weight-current-val {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 72px;
-  font-weight: 900;
-  color: var(--text);
-  line-height: 1;
-}
-.weight-current-val span { font-size: 28px; color: var(--muted2); }
-.weight-delta {
-  margin-top: 8px;
-  font-size: 11px;
-  color: var(--muted2);
-}
-.weight-delta.loss { color: var(--green); }
-.weight-delta.gain { color: var(--red); }
-
-.weight-targets {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-.target-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 10px;
-  text-align: center;
-}
-.target-label { font-size: 8px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
-.target-val {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-}
-.target-val.orange { color: var(--accent); }
-.target-val.blue { color: var(--blue); }
-.target-val.green { color: var(--green); }
-.target-sub { font-size: 8px; color: var(--muted); margin-top: 2px; }
-
-/* Weight Input Form */
-.log-form {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 16px;
-  margin-bottom: 16px;
-}
-.log-form-title { font-size: 9px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
-.input-row { display: flex; gap: 8px; margin-bottom: 10px; }
-.input-group { flex: 1; }
-.input-group label { font-size: 9px; color: var(--muted2); letter-spacing: 1px; display: block; margin-bottom: 5px; text-transform: uppercase; }
-.input-group input {
-  width: 100%;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 16px;
-  padding: 10px 12px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-.input-group input:focus { border-color: var(--accent); }
-.input-group input::placeholder { color: var(--muted); }
-.log-btn {
-  width: 100%;
-  background: var(--accent);
-  border: none;
-  color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  padding: 12px;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: opacity 0.15s;
-}
-.log-btn:active { opacity: 0.8; }
-
-/* Weight Chart */
-.chart-container {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 16px;
-  margin-bottom: 16px;
-}
-.chart-title { font-size: 9px; color: var(--muted2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
-.chart-area {
-  height: 120px;
-  position: relative;
-  overflow: hidden;
-}
-.chart-svg { width: 100%; height: 100%; }
-.chart-line { fill: none; stroke: var(--accent); stroke-width: 2; }
-.chart-area-fill { fill: url(#chartGrad); }
-.chart-dot { fill: var(--accent); }
-.chart-no-data { text-align: center; padding: 40px 0; color: var(--muted); font-size: 10px; letter-spacing: 2px; }
-
-/* Weight History */
-.history-table {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-.history-header {
-  display: grid;
-  grid-template-columns: 1fr 80px 80px 50px;
-  padding: 8px 12px;
-  background: var(--surface2);
-  border-bottom: 1px solid var(--border);
-  font-size: 8px;
-  color: var(--muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.history-row {
-  display: grid;
-  grid-template-columns: 1fr 80px 80px 50px;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  align-items: center;
-  font-size: 11px;
-}
-.history-row:last-child { border-bottom: none; }
-.history-row .date { color: var(--muted2); }
-.history-row .kg {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-}
-.history-row .change { font-size: 11px; }
-.history-row .change.neg { color: var(--green); }
-.history-row .change.pos { color: var(--red); }
-.history-row .del-btn {
-  background: none; border: none; color: var(--muted); cursor: pointer;
-  font-size: 14px; padding: 0 4px;
-}
-.history-row .del-btn:hover { color: var(--red); }
-.history-title { font-size: 9px; color: var(--muted2); letter-spacing: 3px; text-transform: uppercase; padding: 12px 12px 0; margin-bottom: 8px; }
-
-/* ââ PROTEIN VIEW ââ */
-#view-protein { padding: 16px; }
-
-.protein-gauge-wrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 20px;
-  margin-bottom: 16px;
-  text-align: center;
-}
-.protein-target { font-size: 9px; color: var(--blue); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
-.protein-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 64px;
-  font-weight: 900;
-  line-height: 1;
-}
-.protein-num span { font-size: 28px; color: var(--muted2); }
-.protein-bar-wrap { background: var(--border); height: 6px; margin: 12px 0 6px; }
-.protein-bar { height: 6px; background: var(--blue); transition: width 0.6s; }
-.protein-sub { font-size: 10px; color: var(--muted2); }
-
-.timing-block {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.timing-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  background: var(--surface2);
-}
-.timing-time {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--accent);
-  min-width: 70px;
-  line-height: 1;
-}
-.timing-meal { font-size: 11px; color: var(--text); font-weight: 500; }
-.timing-g {
-  margin-left: auto;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--blue);
-}
-.timing-g span { font-size: 11px; color: var(--muted); }
-.timing-note { padding: 8px 12px; font-size: 10px; color: var(--muted2); line-height: 1.6; }
-.timing-note strong { color: var(--text); }
-.glp1-note {
-  background: rgba(0,180,216,0.06);
-  border: 1px solid rgba(0,180,216,0.15);
-  padding: 10px 12px;
+/* ELBOW ALERT */
+.elbow-alert {
+  background: rgba(255,183,0,0.08);
+  border: 1px solid rgba(255,183,0,0.25);
+  padding: 10px 14px;
   margin-bottom: 16px;
   font-size: 10px;
-  color: var(--muted2);
-  line-height: 1.7;
+  color: var(--accent2);
+  line-height: 1.6;
 }
-.glp1-note strong { color: var(--blue); font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 4px; }
+.elbow-alert strong { font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 3px; }
 
-/* ââ BOTTOM HINT ââ */
+/* BOTTOM BAR */
 .bottom-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -522,762 +278,785 @@ body {
   color: var(--muted);
 }
 .bottom-bar .accent { color: var(--accent); }
-
-/* ââ UTILS ââ */
-.section-gap { height: 16px; }
-.smm-alert {
-  background: rgba(255,183,0,0.08);
-  border: 1px solid rgba(255,183,0,0.25);
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  font-size: 10px;
-  color: var(--accent2);
-  line-height: 1.6;
-}
-.smm-alert strong { font-size: 9px; letter-spacing: 2px; display: block; margin-bottom: 3px; }
 </style>
 </head>
 <body>
 
-<!-- TABS -->
-<div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(&#39;program&#39;, this)">PROGRAM</button>
-  <button class="tab-btn" onclick="switchTab(&#39;weight&#39;, this)">WEIGHT</button>
-  <button class="tab-btn" onclick="switchTab(&#39;protein&#39;, this)">PROTEIN</button>
+<!-- HEADER -->
+<div class="header">
+  <div class="header-title">SAMMY<br><span>PHASE 3</span></div>
+  <div class="header-sub">LOW VOL &middot; HIGH INTENSITY &middot; 6 DAYS</div>
+  <div class="header-tags">
+    <span class="tag hot">2 Sets Only</span>
+    <span class="tag hot">6&ndash;10 Reps</span>
+    <span class="tag blue">Supersets</span>
+  </div>
 </div>
 
-<!-- ââââââââââ TAB: PROGRAM ââââââââââ -->
-<div id="view-program" class="view active">
+<div style="height:14px;"></div>
 
-  <div class="header">
-    <div class="header-label">Fat Blitz Â· Phase 4 Â· 2026</div>
-    <div class="header-title">SAMMY<br><span>FAT BLITZ</span></div>
-    <div class="header-sub">LOW VOL Â· HIGH INTENSITY Â· 6 DAYS Â· SMM PROTECTION</div>
-    <div class="header-tags">
-      <span class="tag hot">2 Sets Only</span>
-      <span class="tag hot">6â10 Reps</span>
-      <span class="tag blue">Supersets</span>
-      <span class="tag green">Retatrutide</span>
-      <span class="tag green">Tesamorelin</span>
-    </div>
+<!-- DAY NAV -->
+<div class="day-nav">
+  <button class="day-btn active" onclick="showDay(1,this)">
+    <span class="day-num">D1</span>
+    <span class="day-type">UPPER H</span>
+  </button>
+  <button class="day-btn" onclick="showDay(2,this)">
+    <span class="day-num">D2</span>
+    <span class="day-type">LOWER</span>
+  </button>
+  <button class="day-btn" onclick="showDay(3,this)">
+    <span class="day-num">D3</span>
+    <span class="day-type">UPPER H</span>
+  </button>
+  <button class="day-btn" onclick="showDay(4,this)">
+    <span class="day-num">D4</span>
+    <span class="day-type">LOWER</span>
+  </button>
+  <button class="day-btn" onclick="showDay(5,this)">
+    <span class="day-num">D5</span>
+    <span class="day-type">UPPER H</span>
+  </button>
+  <button class="day-btn" onclick="showDay(6,this)">
+    <span class="day-num">D6</span>
+    <span class="day-type">ARMS</span>
+  </button>
+</div>
+
+<!-- DAY 1 -->
+<div id="day1" class="day-panel active">
+  <div class="day-header">
+    <h2>DAY 1 &mdash; UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+    <p>CHEST &middot; BACK &middot; DELTS &middot; VO2 FINISHER</p>
   </div>
-
-  <div style="height:14px;"></div>
-
-  <div class="peptide-banner">
-    <div class="pep-item">
-      <div class="pep-name">Retatrutide</div>
-      <div class="pep-val">2.5mg</div>
-      <div class="pep-sub">Weekly split dose</div>
-    </div>
-    <div class="pep-item">
-      <div class="pep-name">Tesamorelin</div>
-      <div class="pep-val">1mg</div>
-      <div class="pep-sub">Nightly</div>
-    </div>
-    <div class="pep-item">
-      <div class="pep-name">Protein Target</div>
-      <div class="pep-val">170g</div>
-      <div class="pep-sub">Current: 120g/day</div>
-    </div>
-  </div>
-
-  <div class="warning-box">
-    <strong>â  SMM ALERT</strong>
-    2kg skeletal muscle mass lost in 4 months. This program is built to halt that. 2 sets max â quality over volume. GLP-1 gastric emptying is slowed; do not fast. Hit protein before you touch iron.
-  </div>
-
-  <!-- DAY NAV -->
-  <div class="day-nav">
-    <button class="day-btn active" onclick="showDay(1,this)">
-      <span class="day-num">D1</span>
-      <span class="day-type">UPPER H</span>
-    </button>
-    <button class="day-btn" onclick="showDay(2,this)">
-      <span class="day-num">D2</span>
-      <span class="day-type">LOWER</span>
-    </button>
-    <button class="day-btn" onclick="showDay(3,this)">
-      <span class="day-num">D3</span>
-      <span class="day-type">UPPER H</span>
-    </button>
-    <button class="day-btn" onclick="showDay(4,this)">
-      <span class="day-num">D4</span>
-      <span class="day-type">LOWER</span>
-    </button>
-    <button class="day-btn" onclick="showDay(5,this)">
-      <span class="day-num">D5</span>
-      <span class="day-type">UPPER H</span>
-    </button>
-    <button class="day-btn" onclick="showDay(6,this)">
-      <span class="day-num">D6</span>
-      <span class="day-type">ARMS</span>
-    </button>
-  </div>
-
-  <!-- DAY 1 -->
-  <div id="day1" class="day-panel active">
-    <div class="day-header">
-      <h2>DAY 1 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
-      <p>CHEST Â· BACK Â· DELTS Â· VO2 FINISHER</p>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET A Â· PRIMARY PUSH/PULL <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET A &middot; PRIMARY PUSH/PULL <span class="ss-detail">2&times;6-8 &middot; 90s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">FLAT BENCH PRESS</div>
-          <div class="ex-detail">2 sets Â· 6â8 reps Â· compound anchor</div>
+          <div class="ex-detail">2 sets &middot; 6&ndash;8 reps &middot; compound anchor</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
-        <div class="ex-check"></div>
-        <div class="ex-info">
-          <div class="ex-name">ASSISTED PULL-UPS</div>
-          <div class="ex-detail">2 sets Â· 6â8 reps Â· full ROM</div>
-        </div>
-        <span class="ex-flag key">KEY</span>
-        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_bench" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
       </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET B Â· SHOULDER / REAR DELT <span class="ss-detail">2Ã8-10 Â· 75s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">ASSISTEDPULL-UPS</div>
+          <div class="ex-detail">2 sets &middot; 6&ndash;8 reps &middot; full ROM</div>
+        </div>
+        <span class="ex-flag key">KEY</span>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="ex-weight-row">
+        <label>Assist</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_pullups" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET B &middot; SHOULDER / REAR DELT <span class="ss-detail">2&times;8-10 &middot; 75s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">SHOULDER PRESS</div>
-          <div class="ex-detail">2 sets Â· 8â10 reps Â· machine or DB</div>
+          <div class="ex-detail">2 sets &middot; 8&ndash;10 reps &middot; machine or DB</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_shpress" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">FACE PULLS</div>
-          <div class="ex-detail">2 sets Â· 10â12 reps Â· external rotation emphasis</div>
+          <div class="ex-detail">2 sets &middot; 10&ndash;12 reps &middot; external rotation emphasis</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_facepulls" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">SUPERSET C Â· CABLE + LAT <span class="ss-detail">2Ã10 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">SUPERSET C &middot; CABLE + LAT <span class="ss-detail">2&times;10 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">CABLE CROSSOVERS</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· chest isolation finish</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; chest isolation finish</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_crossovers" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LAT PULLDOWNS</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· wide grip</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; wide grip</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-    </div>
-    <div class="finisher-block">
-      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
-      <div class="finisher-row">Assault bike or rower <span>4 Ã 30s all-out / 90s rest</span></div>
-      <div class="finisher-row">OR incline treadmill walk <span>12 min Â· 8% grade Â· 5.5 km/h</span></div>
-      <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d1_latpull" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
   </div>
+  <div class="finisher-block">
+    <div class="finisher-title">&#9889; VO2 FINISHER &middot; 12&ndash;15 MIN</div>
+    <div class="finisher-row">Assault bike or rower <span>4 &times; 30s all-out / 90s rest</span></div>
+    <div class="finisher-row">OR incline treadmill walk <span>12 min &middot; 8% grade &middot; 5.5 km/h</span></div>
+    <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+  </div>
+</div>
 
-  <!-- DAY 2 -->
-  <div id="day2" class="day-panel">
-    <div class="day-header">
-      <h2>DAY 2 â LOWER<br><span style="color:var(--blue)">QUAD / HAMSTRING</span></h2>
-      <p>LEG PRESS Â· HACKS Â· HAMSTRING Â· CALVES</p>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET A Â· PRIMARY QUAD <span class="ss-detail">2Ã6-8 Â· 120s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+<!-- DAY 2 -->
+<div id="day2" class="day-panel">
+  <div class="day-header">
+    <h2>DAY 2 &mdash; LOWER<br><span style="color:var(--blue)">QUAD / HAMSTRING</span></h2>
+    <p>LEG PRESS &middot; HACKS &middot; HAMSTRING &middot; CALVES</p>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET A &middot; PRIMARY QUAD <span class="ss-detail">2&times;6-8 &middot; 120s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LEG PRESS</div>
-          <div class="ex-detail">2 sets Â· 6â8 reps Â· feet shoulder-width</div>
+          <div class="ex-detail">2 sets &middot; 6&ndash;8 reps &middot; feet shoulder-width</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_legpress" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HACK SQUATS</div>
-          <div class="ex-detail">2 sets Â· 8 reps Â· controlled negative</div>
+          <div class="ex-detail">2 sets &middot; 8 reps &middot; controlled negative</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_hack" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET B Â· POSTERIOR CHAIN <span class="ss-detail">2Ã10 Â· 90s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET B &middot; POSTERIOR CHAIN <span class="ss-detail">2&times;10 &middot; 90s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HAMSTRING MACHINE</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· lying or seated curl</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; lying or seated curl</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_hamstring" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HIP ABDUCTION MACHINE</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· glute med activation</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; glute med activation</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_hipabd" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET C Â· ISOLATION FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET C &middot; ISOLATION FINISH <span class="ss-detail">2&times;12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">QUAD EXTENSIONS</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· peak squeeze at top</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; peak squeeze at top</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_quadext" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">CALF RAISES</div>
-          <div class="ex-detail">2 sets Â· 15 reps Â· slow negative</div>
+          <div class="ex-detail">2 sets &middot; 15 reps &middot; slow negative</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d2_calf" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- DAY 3 -->
-  <div id="day3" class="day-panel">
-    <div class="day-header">
-      <h2>DAY 3 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
-      <p>BACK FOCUS Â· DELTS Â· CABLE WORK</p>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET A Â· BACK / PRESS <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+<!-- DAY 3 -->
+<div id="day3" class="day-panel">
+  <div class="day-header">
+    <h2>DAY 3 &mdash; UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+    <p>BACK FOCUS &middot; DELTS &middot; CABLE WORK</p>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET A &middot; BACK / PRESS <span class="ss-detail">2&times;6-8 &middot; 90s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LAT PULLDOWNS</div>
-          <div class="ex-detail">2 sets Â· 6â 8 reps Â· heavy, full ROM</div>
+          <div class="ex-detail">2 sets &middot; 6&ndash;8 reps &middot; heavy, full ROM</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_latpull" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">SHOULDER PRESS</div>
-          <div class="ex-detail">2 sets Â· 8 reps Â· moderate load</div>
+          <div class="ex-detail">2 sets &middot; 8 reps &middot; moderate load</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_shpress" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET B Â· DELT TRIPLE <span class="ss-detail">2Ã10 Â· 75s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET B &middot; DELT TRIPLE <span class="ss-detail">2&times;10 &middot; 75s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LATERAL RAISES (CABLE)</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· constant tension cable</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; constant tension cable</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_latraise" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="1">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">FACE PULLS</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· external rotation</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; external rotation</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_facepulls" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">SUPERSET C Â· CABLE FINISH <span class="ss-detail">2Ã10-12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">SUPERSET C &middot; CABLE FINISH <span class="ss-detail">2&times;10-12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">CABLE CROSSOVERS</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· high-to-low</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; high-to-low</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_crossovers" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">ASSISTED PULL-UPS</div>
-          <div class="ex-detail">2 sets Â· 8â10 reps Â· controlled</div>
+          <div class="ex-detail">2 sets &middot; 8&ndash;10 reps &middot; controlled</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-    </div>
-    <div class="finisher-block">
-      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
-      <div class="finisher-row">Ski erg or rowing machine <span>4 Ã 40s / 80s rest</span></div>
-      <div class="finisher-row">OR stairmaster <span>12 min moderate-high</span></div>
-      <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+      <div class="ex-weight-row">
+        <label>Assist</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d3_pullups" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
   </div>
+  <div class="finisher-block">
+    <div class="finisher-title">&#9889; VO2 FINISHER &middot; 12&ndash;15 MIN</div>
+    <div class="finisher-row">Ski erg or rowing machine <span>4 &times; 40s / 80s rest</span></div>
+    <div class="finisher-row">OR stairmaster <span>12 min moderate-high</span></div>
+    <div class="finisher-row">Heart rate target <span>Zone 4 (85-90% max HR)</span></div>
+  </div>
+</div>
 
-  <!-- DAY 4 -->
-  <div id="day4" class="day-panel">
-    <div class="day-header">
-      <h2>DAY 4 â LOWER<br><span style="color:var(--blue)">POSTERIOR FOCUS</span></h2>
-      <p>HAMSTRING Â· HIP Â· GLUTE Â· CALVES</p>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET A Â· HIP HINGE <span class="ss-detail">2Ã8 Â· 120s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+<!-- DAY 4 -->
+<div id="day4" class="day-panel">
+  <div class="day-header">
+    <h2>DAY 4 &mdash; LOWER<br><span style="color:var(--blue)">POSTERIOR FOCUS</span></h2>
+    <p>HAMSTRING &middot; HIP &middot; GLUTE &middot; CALVES</p>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET A &middot; HIP HINGE <span class="ss-detail">2&times;8 &middot; 120s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HAMSTRING MACHINE</div>
-          <div class="ex-detail">2 sets Â· 8 reps Â· heavy, slow negative</div>
+          <div class="ex-detail">2 sets &middot; 8 reps &middot; heavy, slow negative</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_hamstring" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HIP ADDUCTION MACHINE</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· inner thigh</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; inner thigh</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET B Â· QUAD / CALF <span class="ss-detail">2Ã10-12 Â· 75s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
-        <div class="ex-check"></div>
-        <div class="ex-info">
-          <div class="ex-name">LEG PRESS</div>
-          <div class="ex-detail">2 sets Â· 10â12 reps Â· higher feet position</div>
-        </div>
-        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
-      </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
-        <div class="ex-check"></div>
-        <div class="ex-info">
-          <div class="ex-name">CALF RAISES (MACHINE)</div>
-          <div class="ex-detail">2 sets Â· 15 reps Â· 3s hold at top</div>
-        </div>
-        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
-      </div>
-    </div>
-    <div class="superset-block">
-      <div class="ss-label blue-ss">SUPERSET C Â· GLUTE FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
-        <div class="ex-check"></div>
-        <div class="ex-info">
-          <div class="ex-name">HIP ABDUCTION MACHINE</div>
-          <div class="ex-detail">2 sets Â· 15 reps Â· glute med</div>
-        </div>
-        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
-      </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
-        <div class="ex-check"></div>
-        <div class="ex-info">
-          <div class="ex-name">QUAD EXTENSIONS</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· peak squeeze</div>
-        </div>
-        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_hipadd" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
       </div>
     </div>
   </div>
-
-  <!-- DAY 5 -->
-  <div id="day5" class="day-panel">
-    <div class="day-header">
-      <h2>DAY 5 â UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
-      <p>PRESS Â· DELT TRI-SET Â· REAR FOCUS</p>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET B &middot; QUAD / CALF <span class="ss-detail">2&times;10-12 &middot; 75s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">LEG PRESS</div>
+          <div class="ex-detail">2 sets &middot; 10&ndash;12 reps &middot; higher feet position</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_legpress" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET A Â· CHEST / PULL <span class="ss-detail">2Ã6-8 Â· 90s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">CALF RAISES (MACHINE)</div>
+          <div class="ex-detail">2 sets &middot; 15 reps &middot; 3s hold at top</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_calf" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label blue-ss">SUPERSET C &middot; GLUTE FINISH <span class="ss-detail">2&times;12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">HIP ABDUCTION MACHINE</div>
+          <div class="ex-detail">2 sets &middot; 15 reps &middot; glute med</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_hipabd" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
+        <div class="ex-check"></div>
+        <div class="ex-info">
+          <div class="ex-name">QUAD EXTENSIONS</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; peak squeeze</div>
+        </div>
+        <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
+      </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d4_quadext" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 5 -->
+<div id="day5" class="day-panel">
+  <div class="day-header">
+    <h2>DAY 5 &mdash; UPPER<br><span style="color:var(--accent)">HEAVY + VO2</span></h2>
+    <p>PRESS &middot; DELT TRI-SET &middot; REAR FOCUS</p>
+  </div>
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET A &middot; CHEST / PULL <span class="ss-detail">2&times;6-8 &middot; 90s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">FLAT BENCH PRESS</div>
-          <div class="ex-detail">2 sets Â· 6â8 reps Â· top-set effort</div>
+          <div class="ex-detail">2 sets &middot; 6&ndash;8 reps &middot; top-set effort</div>
         </div>
         <span class="ex-flag key">KEY</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_bench" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LAT PULLDOWNS</div>
-          <div class="ex-detail">2 sets Â· 8 reps Â· underhand grip variation</div>
+          <div class="ex-detail">2 sets &middot; 8 reps &middot; underhand grip variation</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_latpull" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">DELT TRI-SET Â· ALL 3 HEADS <span class="ss-detail">2 rounds Â· no rest within</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">DELT TRI-SET &middot; ALL 3 HEADS <span class="ss-detail">2 rounds &middot; no rest within</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LATERAL RAISES</div>
-          <div class="ex-detail">2Ã10 Â· mid delt Â· light-moderate</div>
+          <div class="ex-detail">2&times;10 &middot; mid delt &middot; light-moderate</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_latraise" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="1">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">FACE PULLS</div>
-          <div class="ex-detail">2Ã12 Â· rear delt + rotator cuff</div>
+          <div class="ex-detail">2&times;12 &middot; rear delt + rotator cuff</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_facepulls" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">REAR DELT FLY</div>
-          <div class="ex-detail">2Ã12 Â· pec deck reverse / cable</div>
+          <div class="ex-detail">2&times;12 &middot; pec deck reverse / cable</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_reardelt" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label">SUPERSET C Â· FINISH <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label">SUPERSET C &middot; FINISH <span class="ss-detail">2&times;12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">CABLE CROSSOVERS</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· low-to-high</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; low-to-high</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_crossovers" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">ASSISTED PULL-UPS</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· wide grip</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; wide grip</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-    </div>
-    <div class="finisher-block">
-      <div class="finisher-title">â¡ VO2 FINISHER Â· 12â15 MIN</div>
-      <div class="finisher-row">Assault bike <span>5 Ã 20s sprint / 100s rest</span></div>
-      <div class="finisher-row">OR brisk walk incline <span>15 min Â· zone 3</span></div>
+      <div class="ex-weight-row">
+        <label>Assist</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d5_pullups" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
   </div>
+  <div class="finisher-block">
+    <div class="finisher-title">&#9889; VO2 FINISHER &middot; 12&ndash;15 MIN</div>
+    <div class="finisher-row">Assault bike <span>5 &times; 20s sprint / 100s rest</span></div>
+    <div class="finisher-row">OR brisk walk incline <span>15 min &middot; zone 3</span></div>
+  </div>
+</div>
 
-  <!-- DAY 6 -->
-  <div id="day6" class="day-panel">
-    <div class="day-header">
-      <h2>DAY 6 â ARMS<br><span style="color:var(--purple)">WEAK POINT AUDIT</span></h2>
-      <p>BICEP Â· TRICEP Â· FOREARM Â· ELBOW PROTOCOL</p>
-    </div>
-    <div class="smm-alert">
-      <strong>â  LEFT ELBOW FLAG</strong>
-      Neutral grip mandatory on all curl and rowing movements. EZ-bar or hammer grip only. Avoid supinated barbell curls.
-    </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">SUPERSET A Â· BI / TRI <span class="ss-detail">2Ã8-10 Â· 75s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+<!-- DAY 6 -->
+<div id="day6" class="day-panel">
+  <div class="day-header">
+    <h2>DAY 6 &mdash; ARMS<br><span style="color:var(--purple)">WEAK POINT AUDIT</span></h2>
+    <p>BICEP &middot; TRICEP &middot; FOREARM &middot; ELAOW PROTOCOL</p>
+  </div>
+  <div class="elbow-alert">
+    <strong>&#9888; LEFT ELBOW &mdash; NEUTRAL GRIP</strong>
+    Use EZ-bar or hammer grip on all curl and rowing movements. Avoid supinated barbell curls.
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">SUPERSET A &middot; BI / TRI <span class="ss-detail">2&times;8-10 &middot; 75s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">EZ-BAR CURL (NEUTRAL)</div>
-          <div class="ex-detail">2 sets Â· 8â10 reps Â· no swinging</div>
+          <div class="ex-detail">2 sets &middot; 8&ndash;10 reps &middot; no swinging</div>
         </div>
         <span class="ex-flag warn">ELBOW</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_ezcurl" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">CABLE TRICEP PUSHDOWN</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· rope attachment</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; rope attachment</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_triceppush" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">SUPERSET B Â· ISOLATION <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">SUPERSET B &middot; ISOLATION <span class="ss-detail">2&times;12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">HAMMER CURL</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· brachialis focus</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; brachialis focus</div>
         </div>
         <span class="ex-flag warn">ELBOW</span>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_hammer" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="1">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">OVERHEAD CABLE TRICEP</div>
-          <div class="ex-detail">2 sets Â· 10 reps Â· long head stretch</div>
+          <div class="ex-detail">2 sets &middot; 10 reps &middot; long head stretch</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_overtricep" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
     </div>
-    <div class="superset-block">
-      <div class="ss-label purple-ss">WEAK POINT AUDIT Â· PICK 1 <span class="ss-detail">2Ã12 Â· 60s rest</span></div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+  </div>
+  <div class="superset-block">
+    <div class="ss-label purple-ss">WEAK POINT AUDIT &middot; PICK 1 <span class="ss-detail">2&times;12 &middot; 60s rest</span></div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">LATERAL RAISES (CABLE)</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· weak-point delt</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; weak-point delt</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-      <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_latraise" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="1">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
+      </div>
+    </div>
+    <div class="exercise-row" onclick="toggleEx(this)">
+      <div class="ex-top">
         <div class="ex-check"></div>
         <div class="ex-info">
           <div class="ex-name">REAR DELT CABLE PULL</div>
-          <div class="ex-detail">2 sets Â· 12 reps Â· finisher option</div>
+          <div class="ex-detail">2 sets &middot; 12 reps &middot; finisher option</div>
         </div>
         <div class="ex-sets"><div class="set-dot" onclick="toggleDot(event,this)"></div><div class="set-dot" onclick="toggleDot(event,this)"></div></div>
       </div>
-    </div>
-  </div>
-
-</div>
-<!-- END PROGRAM VIEW -->
-
-
-<!-- ââââââââââ TAB: WEIGHT ââââââââââ -->
-<div id="view-weight" class="view">
-
-  <div id="weight-hero" class="weight-hero">
-    <div class="weight-current-label">CURRENT WEIGHT</div>
-    <div class="weight-current-val" id="current-weight-display">-- <span>kg</span></div>
-    <div class="weight-delta" id="weight-delta-display">Log your first entry below</div>
-  </div>
-
-  <div class="weight-targets">
-    <div class="target-card">
-      <div class="target-label">Target</div>
-      <div class="target-val orange">79<span style="font-size:14px;color:var(--muted2)">kg</span></div>
-      <div class="target-sub">Fat Blitz goal</div>
-    </div>
-    <div class="target-card">
-      <div class="target-label">SMM Floor</div>
-      <div class="target-val blue">Protect</div>
-      <div class="target-sub">No further loss</div>
-    </div>
-    <div class="target-card">
-      <div class="target-label">Protocol</div>
-      <div class="target-val green">Active</div>
-      <div class="target-sub">Retatrutide</div>
-    </div>
-  </div>
-
-  <!-- LOG FORM -->
-  <div class="log-form" style="margin-bottom:16px;">
-    <div class="log-form-title">LOG WEIGHT ENTRY</div>
-    <div class="input-row">
-      <div class="input-group">
-        <label>Weight (kg)</label>
-        <input type="number" id="weight-input" placeholder="e.g. 84.5" step="0.1" min="50" max="200">
-      </div>
-      <div class="input-group">
-        <label>Date</label>
-        <input type="date" id="date-input">
-      </div>
-    </div>
-    <div class="input-row" style="margin-bottom:0;">
-      <div class="input-group">
-        <label>Note (optional)</label>
-        <input type="text" id="note-input" placeholder="e.g. post-breakfast">
-      </div>
-    </div>
-    <div style="height:10px;"></div>
-    <button class="log-btn" onclick="logWeight()">LOG WEIGHT</button>
-  </div>
-
-  <!-- CHART -->
-  <div class="chart-container">
-    <div class="chart-title">WEIGHT TREND</div>
-    <div class="chart-area" id="chart-area">
-      <div class="chart-no-data" id="chart-no-data" style="display: block;">Log 2+ entries to see trend</div>
-      <svg class="chart-svg" id="chart-svg" style="display:none;" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <lineargradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#FF5C00" stop-opacity="0.3"></stop>
-            <stop offset="100%" stop-color="#FF5C00" stop-opacity="0"></stop>
-          </lineargradient>
-        </defs>
-        <path id="chart-area-path" class="chart-area-fill"></path>
-        <path id="chart-line-path" class="chart-line"></path>
-        <g id="chart-dots"></g>
-        <g id="chart-labels" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:9px;fill:#555;"></g>
-      </svg>
-    </div>
-  </div>
-
-  <!-- HISTORY -->
-  <div class="history-table">
-    <div class="history-title">WEIGHT LOG</div>
-    <div class="history-header">
-      <div>DATE</div>
-      <div>KG</div>
-      <div>CHANGE</div>
-      <div></div>
-    </div>
-    <div id="weight-history-list"><div style="padding:20px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:2sx;">NO ENTRIES YET</div></div>
-  </div>
-
-  <div style="height:8px;"></div>
-</div>
-<!-- END WEIGHT VIEW -->
-
-
-<!-- ââââââââââ TAB: PROTEIN ââââââââââ -->
-<div id="view-protein" class="view">
-
-  <div style="padding:16px 16px 0;">
-    <div class="header-label">GLP-1 Optimised</div>
-    <div style="font-family:&#39;Barlow Condensed&#39;,sans-serif;font-size:40px;font-weight:900;line-height:1;">PROTEIN<br><span style="color:var(--blue)">TIMING</span></div>
-    <div style="font-size:10px;color:var(--muted2);margin-top:8px;letter-spacing:1px;">120g â 170g/DAY Â· SLOWED GASTRIC EMPTYING PROTOCOL</div>
-  </div>
-
-  <div style="height:14px;"></div>
-
-  <div class="protein-gauge-wrap" style="margin:0 16px 14px;">
-    <div class="protein-target">DAILY TARGET</div>
-    <div class="protein-num">170 <span>g/day</span></div>
-    <div class="protein-bar-wrap"><div class="protein-bar" style="width:71%;"></div></div>
-    <div class="protein-sub">Currently achieving ~120g (71%) Â· Gap: 50g/day</div>
-  </div>
-
-  <div style="padding:0 16px;">
-    <div class="glp1-note">
-      <strong>â  GLP-1 / GIP SLOWED MOTILITY RULES</strong>
-      Retatrutide suppresses appetite and slows gastric emptying. Large bolus meals will cause nausea and bloating. The protocol below distributes protein across 6 micro-windows. Never eat a protein meal within 60 minutes of a dose. Liquid protein (shakes, yogurt) digests faster than solid food and is your primary tool for hitting targets without GI distress.
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">6:30</div>
-        <div>
-          <div class="timing-meal">Wake-up Shake</div>
-          <div style="font-size:9px;color:var(--muted2);">Pre-workout / fasted window</div>
-        </div>
-        <div class="timing-g">35 <span>g</span></div>
-      </div>
-      <div class="timing-note">Whey isolate in 300ml water (fastest absorbing, minimal gastric load). Add <strong>creatine 5g</strong> here. Do not add milk â slows digestion. Take <strong>before iron</strong>, not after. This is your anchor protein window.</div>
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">9:30</div>
-        <div>
-          <div class="timing-meal">Post-Workout Meal</div>
-          <div style="font-size:9px;color:var(--muted2);">Solid food Â· anabolic window</div>
-        </div>
-        <div class="timing-g">40 <span>g</span></div>
-      </div>
-      <div class="timing-note">3 scrambled eggs + 150g Greek yogurt (Chobani full-fat). Soft, fast-digesting. This is your biggest solid protein window â take advantage while hunger window is open post-training before Retatrutide appetite suppression kicks in fully.</div>
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">12:30</div>
-        <div>
-          <div class="timing-meal">Lunch Protein Block</div>
-          <div style="font-size:9px;color:var(--muted2);">Mid-day Â· light volume</div>
-        </div>
-        <div class="timing-g">35 <span>g</span></div>
-      </div>
-      <div class="timing-note">150â180g chicken breast or canned tuna (drained). Keep the meal small â GLP-1 satiety peaks midday. No rice or dense carbs. Add <strong>10g psyllium husk in water</strong> separately 30 min before to assist motility without interfering with protein absorption.</div>
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">16:00</div>
-        <div>
-          <div class="timing-meal">Afternoon Casein</div>
-          <div style="font-size:9px;color:var(--muted2);">Slow-release bridge</div>
-        </div>
-        <div class="timing-g">25 <span>g</span></div>
-      </div>
-      <div class="timing-note">Casein shake or 200g cottage cheese. Slow-digesting protein is ideal here â bridges the gap to dinner without loading the stomach. This window is often skipped when on GLP-1s. <strong>Do not skip this.</strong> It directly closes your protein gap.</div>
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">19:00</div>
-        <div>
-          <div class="timing-meal">Dinner</div>
-          <div style="font-size:9px;color:var(--muted2);">Light protein Â· small volume</div>
-        </div>
-        <div class="timing-g">25 <span>g</span></div>
-      </div>
-      <div class="timing-note">Salmon fillet (140g) or 2 eggs + 100g yogurt. Keep this meal light. GLP-1 induced satiety is strong by evening â do not force a heavy meal. Pair with steamed greens only. No dense starches at this window.</div>
-    </div>
-
-    <div class="timing-block">
-      <div class="timing-header">
-        <div class="timing-time">21:30</div>
-        <div>
-          <div class="timing-meal">Pre-Sleep (Tesamorelin Window)</div>
-          <div style="font-size:9px;color:var(--muted2);">Nightly Â· growth hormone synergy</div>
-        </div>
-        <div class="timing-g">10 <span>g</span></div>
-      </div>
-      <div class="timing-note">Administer <strong>Tesamorelin 1mg</strong> on empty stomach. Wait 45 minutes. Then 1 small casein scoop or 100g cottage cheese. GH pulsatility is disrupted by insulin â keeping carbs zero at this window maximises Tesamorelin efficacy while delivering slow-release amino acids overnight for muscle repair.</div>
-    </div>
-
-    <div style="background:var(--surface);border:1px solid var(--border);padding:14px;margin-top:4px;margin-bottom:16px;">
-      <div style="font-size:9px;color:var(--muted2);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;">DAILY TOTAL BREAKDOWN</div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">6:30 Whey shake</span><span style="color:var(--text);">35g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">9:30 Eggs + yogurt</span><span style="color:var(--text);">40g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">12:30 Chicken/tuna</span><span style="color:var(--text);">35g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">16:00 Casein/cottage cheese</span><span style="color:var(--text);">25g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">19:00 Salmon/eggs</span><span style="color:var(--text);">25g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:6px 0;border-bottom:1px solid var(--border);">
-        <span style="color:var(--muted2);">21:30 Pre-sleep casein</span><span style="color:var(--text);">10g</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:14px;padding:10px 0 0;font-family:&#39;Barlow Condensed&#39;,sans-serif;font-weight:700;">
-        <span style="color:var(--muted2);">TOTAL</span><span style="color:var(--blue);">170g</span>
+      <div class="ex-weight-row">
+        <label>Weight</label>
+        <input class="weight-input" type="number" placeholder="kg" data-key="d6_reardelt" onclick="event.stopPropagation()" oninput="saveWeight(this)" step="2.5">
+        <span class="weight-unit">kg</span>
+        <span class="weight-saved-tag">SAVED</span>
       </div>
     </div>
   </div>
 </div>
-<!-- END PROTEIN VIEW -->
-
 
 <!-- BOTTOM BAR -->
 <div class="bottom-bar">
-  <span class="accent">SAMMY Â· FAT BLITZ Â· 2026</span>
-  <span>Tap to check Â· dots = sets</span>
+  <span class="accent">SAMMY &middot; PHASE 3</span>
+  <span>Tap to check &middot; dots = sets</span>
 </div>
 
 <script>
-// ââ TAB SWITCHING ââ
-function switchTab(tab, btn) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('view-' + tab).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
-
-// ââ DAY SWITCHING ââ
+// DAY SWITCHING
 function showDay(n, btn) {
   document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
@@ -1286,7 +1065,7 @@ function showDay(n, btn) {
   document.querySelector('.day-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// ââ EXERCISE TOGGLE ââ
+// EXERCISE TOGGLE
 function toggleEx(row) {
   row.classList.toggle('done');
 }
@@ -1296,174 +1075,36 @@ function toggleDot(e, dot) {
   dot.classList.toggle('hit');
 }
 
-// ââ WEIGHT STORAGE ââ
-const WEIGHT_KEY = 'sammy_weight_log_v2';
+// WEIGHT PERSISTENCE
+const WK = 'sammy_p3_weights';
 
-function getWeightLog() {
-  try {
-    const raw = localStorage.getItem(WEIGHT_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch { return []; }
+function getWeights() {
+  try { return JSON.parse(localStorage.getItem(WK) || '{}'); } catch { return {}; }
 }
 
-function saveWeightLog(log) {
-  try { localStorage.setItem(WEIGHT_KEY, JSON.stringify(log)); } catch {}
+function saveWeight(input) {
+  const key = input.getAttribute('data-key');
+  const val = input.value;
+  const data = getWeights();
+  if (val) { data[key] = val; } else { delete data[key]; }
+  try { localStorage.setItem(WK, JSON.stringify(data)); } catch {}
+  const tag = input.parentElement.querySelector('.weight-saved-tag');
+  if (tag && val) {
+    tag.classList.add('show');
+    clearTimeout(tag._t);
+    tag._t = setTimeout(() => tag.classList.remove('show'), 1200);
+  }
 }
 
-// ââ SET DATE INPUT DEFAULT ââ
+// LOAD SAVED WEIGHTS ON INIT
 (function() {
-  const today = new Date();
-  const y = today.getFullYear();
-  const m = String(today.getMonth() + 1).padStart(2, '0');
-  const d = String(today.getDate()).padStart(2, '0');
-  document.getElementById('date-input').value = `${y}-${m}-${d}`;
+  const data = getWeights();
+  document.querySelectorAll('.weight-input').forEach(input => {
+    const key = input.getAttribute('data-key');
+    if (data[key]) input.value = data[key];
+  });
 })();
-
-// ââ LOG WEIGHT ââ
-function logWeight() {
-  const kgInput = document.getElementById('weight-input');
-  const dateInput = document.getElementById('date-input');
-  const noteInput = document.getElementById('note-input');
-  const kg = parseFloat(kgInput.value);
-  const date = dateInput.value;
-  if (!kg || kg < 40 || kg > 300 || !date) {
-    kgInput.style.borderColor = '#FF1744';
-    setTimeout(() => kgInput.style.borderColor = '', 1000);
-    return;
-  }
-  const log = getWeightLog();
-  // Remove duplicate same-date entry
-  const idx = log.findIndex(e => e.date === date);
-  if (idx >= 0) log.splice(idx, 1);
-  log.push({ date, kg, note: noteInput.value || '' });
-  log.sort((a, b) => new Date(a.date) - new Date(b.date));
-  saveWeightLog(log);
-  kgInput.value = '';
-  noteInput.value = '';
-  renderWeightView();
-}
-
-// ââ DELETE ENTRY ââ
-function deleteEntry(date) {
-  const log = getWeightLog().filter(e => e.date !== date);
-  saveWeightLog(log);
-  renderWeightView();
-}
-
-// ââ RENDER WEIGHT VIEW ââ
-function renderWeightView() {
-  const log = getWeightLog();
-  const historyEl = document.getElementById('weight-history-list');
-  const currentEl = document.getElementById('current-weight-display');
-  const deltaEl = document.getElementById('weight-delta-display');
-
-  if (log.length === 0) {
-    currentEl.innerHTML = '-- <span>kg</span>';
-    deltaEl.textContent = 'Log your first entry below';
-    deltaEl.className = 'weight-delta';
-    historyEl.innerHTML = '<div style="padding:20px;text-align:center;color:var(--muted);font-size:10px;letter-spacing:2px;">NO ENTRIES YET</div>';
-    renderChart([]);
-    return;
-  }
-
-  const latest = log[log.length - 1];
-  currentEl.innerHTML = `${latest.kg.toFixed(1)} <span>kg</span>`;
-
-  if (log.length >= 2) {
-    const prev = log[log.length - 2];
-    const diff = latest.kg - prev.kg;
-    const sign = diff <= 0 ? '' : '+';
-    deltaEl.textContent = `${sign}${diff.toFixed(1)}kg from previous entry`;
-    deltaEl.className = 'weight-delta ' + (diff <= 0 ? 'loss' : 'gain');
-  } else {
-    deltaEl.textContent = 'First entry logged';
-    deltaEl.className = 'weight-delta';
-  }
-
-  // Render history (newest first)
-  const reversed = [...log].reverse();
-  historyEl.innerHTML = reversed.map((entry, i) => {
-    const actual_i = log.length - 1 - i;
-    let changeHTML = '<span style="color:var(--muted)">â</span>';
-    if (actual_i > 0) {
-      const prev = log[actual_i - 1];
-      const diff = entry.kg - prev.kg;
-      const sign = diff <= 0 ? '' : '+';
-      changeHTML = `<span class="change ${diff <= 0 ? 'neg' : 'pos'}">${sign}${diff.toFixed(1)}</span>`;
-    }
-    const dateObj = new Date(entry.date + 'T00:00:00');
-    const label = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    return `<div class="history-row">
-      <div class="date">${label}${entry.note ? `<br><span style="color:var(--muted);font-size:9px;">${entry.note}</span>` : ''}</div>
-      <div class="kg">${entry.kg.toFixed(1)}</div>
-      <div>${changeHTML}</div>
-      <div><button class="del-btn" onclick="deleteEntry('${entry.date}')">â</button></div>
-    </div>`;
-  }).join('');
-
-  renderChart(log);
-}
-
-// ââ RENDER CHART ââ
-function renderChart(log) {
-  const noData = document.getElementById('chart-no-data');
-  const svg = document.getElementById('chart-svg');
-  if (log.length < 2) {
-    noData.style.display = 'block';
-    svg.style.display = 'none';
-    return;
-  }
-  noData.style.display = 'none';
-  svg.style.display = 'block';
-
-  const W = document.getElementById('chart-area').offsetWidth || 300;
-  const H = 120;
-  const PAD = { top: 14, bottom: 18, left: 8, right: 8 };
-
-  const weights = log.map(e => e.kg);
-  const minW = Math.min(...weights) - 1;
-  const maxW = Math.max(...weights) + 1;
-  const n = log.length;
-
-  function xPos(i) { return PAD.left + (i / (n - 1)) * (W - PAD.left - PAD.right); }
-  function yPos(w) { return PAD.top + (1 - (w - minW) / (maxW - minW)) * (H - PAD.top - PAD.bottom); }
-
-  const points = log.map((e, i) => ({ x: xPos(i), y: yPos(e.kg) }));
-  const lineD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
-  const areaD = lineD + ` L${points[n-1].x.toFixed(1)},${H} L${points[0].x.toFixed(1)},${H} Z`;
-
-  document.getElementById('chart-line-path').setAttribute('d', lineD);
-  document.getElementById('chart-area-path').setAttribute('d', areaD);
-
-  const dotsG = document.getElementById('chart-dots');
-  const labelsG = document.getElementById('chart-labels');
-  dotsG.innerHTML = '';
-  labelsG.innerHTML = '';
-
-  points.forEach((p, i) => {
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', p.x);
-    circle.setAttribute('cy', p.y);
-    circle.setAttribute('r', i === n - 1 ? 4 : 2.5);
-    circle.setAttribute('fill', i === n - 1 ? '#FF5C00' : '#883300');
-    dotsG.appendChild(circle);
-  });
-
-  // Label first, last, and every 5th
-  [0, n - 1, ...Array.from({length: n}, (_, i) => i).filter(i => i % 5 === 0 && i > 0 && i < n - 1)].forEach(i => {
-    const p = points[i];
-    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    txt.setAttribute('x', p.x);
-    txt.setAttribute('y', H - 2);
-    txt.setAttribute('text-anchor', i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle');
-    txt.textContent = log[i].kg.toFixed(1);
-    labelsG.appendChild(txt);
-  });
-}
-
-// ââ INIT ââ
-renderWeightView();
 </script>
 
-
-</body></html>
+</body>
+</html>
